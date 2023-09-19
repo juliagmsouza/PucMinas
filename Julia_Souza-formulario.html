@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-sacle=1.0" />
+  <title>Formulário</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Quiz sobre o sistema solar</h1>
+  </header>
+
+  <main>
+    <section id="pergunta1">
+      <h2>Pergunta 1</h2>
+      <p>Quantos planetas existem no sistema solar:</p>
+      <form>
+        <input type="radio" id="alternativa1-1" value="7">
+        <label for="alternativa1-1">a) 7 </label>
+        <input type="radio" id="alternativa1-2" value="8">
+        <label for="alternativa1-2">b) 8 </label>
+        <input type="radio" id="alternativa1-3" value="9">
+        <label for="alternativa1-3">b) 9 </label>
+        <input type="reset" value="Enviar">
+      </form>
+    </section>
+
+    <section id="pergunta2">
+      <h2>Pergunta 2</h2>
+      <p>Quais destes são planetas gasosos? Selecione todas as opções corretas.</p>
+      <form>
+        <input type="checkbox" id="alternativa2-1" value="marte">
+        <label for="alternativa2-1">a) Marte</label>
+        <input type="checkbox" id="alternativa2-2" value="jupiter">
+        <label for="alternativa2-2">b) Jupiter</label>
+        <input type="checkbox" id="alternativa2-3" value="venus">
+        <label for="alternativa2-3">c) Vênus</label>
+        <input type="reset" value="Enviar">
+      </form>
+    </section>
+
+    <section id="pergunta3">
+      <h2>Pergunta 3</h2>
+      <p>Qual a maior Lua de Saturno?</p>
+      <form>
+        <select id="moons">
+          <option value="europa">Europa</option>
+          <option value="tita">Titã</option>
+          <option value="luaGanimedes">Lua de Ganimedes</option>
+        </select>
+        <input type="reset" value="Enviar">
+      </form>
+    </section>
+
+    <section id="pergunta4">
+      <h2>Pergunta 4</h2>
+      <p>Em que ano a sonda Voyager 2 foi lançada para explorar os planetas do Sistema Solar?</p>
+      <form oninput="x.value=parseInt(a.value)">
+        1960
+        <input type="range" id="a" name="a" min="1960" max="1980" value="1980">
+        <output name="x" for="a"></output>
+        <input type="reset" value="Enviar">
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Sistema Solar</p>
+  </footer>
+</body>
+
+</html>
