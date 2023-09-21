@@ -31,6 +31,7 @@ section {
 }
 
 section:hover {
+  background-color: rgba(32, 32, 34, 0.92);
   transform: scale(1.02);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
@@ -88,6 +89,7 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #006177;
+  color:#F37021;
 }
 
 input[type="range"] {
