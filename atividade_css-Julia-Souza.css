@@ -62,15 +62,15 @@ select {
   width: 100%;
   padding: 12px;
   font-size: 18px;
-  border: 2px solid #ccc;
+  border: 2px solid #D8E0E8;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: #D8E0E8;
   font-family: "Nunito", sans-serif;
   transition: border-color 0.3s ease;
 }
 
 select:hover {
-  border-color: #007bff;
+  border-color: #F37021;
 }
 
 button[type="submit"] {
