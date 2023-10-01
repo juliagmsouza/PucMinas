@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-sacle=1.0" />
   <title>Formulário</title>
   <link rel="stylesheet" href="atividade_css-Julia-Souza.css" />
+  <script src="script-task2.js" defer></script>
 </head>
 
 <body>
@@ -16,7 +17,7 @@
   <main>
     <section id="pergunta1">
       <h2>Pergunta 1</h2>
-      <p>Quantos planetas existem no sistema solar:</p>
+      <p id="firstP">Quantos planetas existem no sistema solar:</p>
       <form>
         <label> <input type="radio" name="pergunta1" value="a" />a) 7 </label>
         <label> <input type="radio" name="pergunta1" value="b" />b) 8 </label>
@@ -62,6 +63,23 @@
         <input type="range" id="anoSonda" name="anoSonda" min="1960" max="1980">
         <button type="submit">Enviar</button>
       </form>
+    </section>
+
+    <section>
+      <details>
+        <summary>Lista de planetas</summary>
+        <ul>
+          <li>Mercúrio</li>
+          <li>Vênus</li>
+          <li>Terra</li>
+          <li>Marte</li>
+          <li>Júpiter</li>
+          <li>Saturno</li>
+          <li>Urano</li>
+          <li>Netuno</li>
+          <li>Plutão</li>
+        </ul>
+      </details>
     </section>
   </main>
 

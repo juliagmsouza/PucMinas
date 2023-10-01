@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css?family=Cabin");
+@import url("https://fonts.googleapis.com/css?family=Kalam");
+
+body {
+    margin: 2% 5%
+}
+
+.to-do-items {
+    width: 68vh;
+    height: 10vh;
+    background-color: #DBF0FF;
+    border: 2px solid #80CAFF;
+    border-radius: 8px;
+    font-family: "Kalam", serif;
+    font-size: 200%;
+    align-items: center;
+    justify-content: center;
+    display: flex
+}
+
+.done-items {
+    width: 68vh;
+    height: 10vh;
+    background-color: #DCF3E7;
+    border: 2px solid #4EC284;
+    border-radius: 8px;
+    font-family: "Kalam", serif;
+    font-size: 200%;
+    align-items: center;
+    justify-content: center;
+    display: flex
+}
+
+.container {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 40% 40%;
+    grid-gap: 15%;
+}
+
+.container-tasks {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    grid-gap: 15%;
+    margin-left: 1%;
+}
+
+.space-between {
+    margin-left: 2%;
+}
+
+.to-do-form-class {
+    width: 16vh;
+    height: 16vh;
+    background-color: #80CAFF;
+    margin-top: 3%;
+}
+
+.to-do-form-input-class {
+    background: none;
+    border: none;
+    font-family: "Cabin";
+    font-size: 95%;
+    margin: 3%;
+}
+
+.to-do-form-input-class::placeholder {
+    color: #000000;
+    font-family: "Cabin";
+    font-size: 95%
+}
+
+.to-do-form-input-class:focus {
+    outline: none;
+}
+
+.to-do-form-button-class {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    border: none;
+    background-color: #FFCD29;
+    float: right;
+    margin-top: 45%;
+    margin-right: 5%;
+    cursor: pointer;
+}
+
+.text-button-add {
+    font-family: "Cabin";
+    font-size: 170%;
+}
+
+.delete-button {
+    border: none;
+    float: right;
+    background-color: #FFCD29;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    margin-top: 45%;
+    margin-right: 5%;
+    cursor: pointer;
+}
+
+.delete-button img {
+    width: 35%;
+    height: 45%;
+}
+
+.done-button {
+    border: none;
+    background-color: #FFCD29;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    margin-top: 45%;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+.done-button img {
+    width: 45%;
+    height: 55%;
+}
+
+.order-button-class {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    border: none;
+    background-color: #FFCD29;
+    cursor: pointer;
+    margin-top: 2%;
+}
+
+.order-button-done-class {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    border: none;
+    background-color: #FFCD29;
+    cursor: pointer;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.order-button-text {
+    font-family: "Cabin";
+}
+
+ul>li {
+    display: inline-block;
+}
+
+li {
+    width: 16vh;
+    height: 16vh;
+    background-color: #80CAFF;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+li:nth-child(4n+1) {
+    margin-left: 0;
+}
+
+li div {
+    padding: 3%;
+    font-family: "Cabin";
+    font-size: 100%
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.done-li {
+    background-color: #4EC284;
+}
+
+#done-list {
+    margin-left: 1.5%
+}

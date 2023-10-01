@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>To do list</title>
+  <link rel="stylesheet" href="todoList.css" />
+</head>
+
+<body>
+  <main id="app">
+    <!-- <h1>Exemplo de SPA sem framework no MVC pattern</h1>
+      <form id="todo-form">
+        <input type="text" id="todo-input" placeholder="Digite uma tarefa" />
+        <button type="submit">Adicionar</button>
+      </form>
+      <ul id="todo-list"></ul> -->
+    <div class="container">
+      <div class="to-do-items">
+        <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/regular/bookmark.svg"
+          alt="lock" height="28%">
+        <span class="space-between">Items para fazer</span>
+      </div>
+      <div class="done-items">
+        <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/regular/check-circle.svg"
+          alt="lock" height="32%">
+        <span class="space-between">
+          Items concluídos
+        </span>
+      </div>
+    </div>
+    <div class="container-tasks">
+      <div>
+        <button id="order-button" class="order-button-class">
+          <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/solid/sort-alpha-down.svg"
+          alt="lock" height="35%">
+        </button>
+        <span class="order-button-text">Ordenar alfabeticamente</span>
+        <ul id="to-do-list"></ul>
+        <form class="to-do-form-class" id="to-do-form">
+          <input class="to-do-form-input-class" type="text" id="to-do-input" placeholder="Digite uma tarefa" />
+          <button class="to-do-form-button-class" type="submit">
+            <span class="text-button-add">
+              <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/solid/plus.svg"
+                alt="lock" height="32%">
+            </span>
+          </button>
+        </form>
+      </div>
+      <div>
+        <button id="order-done-list-button" class="order-button-done-class">
+          <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/solid/sort-alpha-down.svg"
+          alt="lock" height="35%">
+        </button>
+        <span class="order-button-text">Ordenar alfabeticamente</span>
+        <ul id="done-list"></ul>
+      </div>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+
+</html>
