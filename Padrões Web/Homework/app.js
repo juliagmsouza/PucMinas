@@ -14,8 +14,8 @@ const view = {
     todoList: document.getElementById('to-do-list'),
     renderTodo: function (todo)
  {
-    const todoSpan = document.createElement('div');
-    todoSpan.textContent = todo;
+    const todoDiv = document.createElement('div');
+    todoDiv.textContent = todo;
     const todoButton = document.createElement('button');
     todoButton.classList.add('delete-button');
     const img = document.createElement('img');
@@ -27,7 +27,7 @@ const view = {
     imgDone.src = 'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/solid/check.svg';
     doneButton.appendChild(imgDone);
     const todoItem = document.createElement('li');
-    todoItem.appendChild(todoSpan);
+    todoItem.appendChild(todoDiv);
     todoItem.appendChild(todoButton);
     todoItem.appendChild(doneButton);
     todoButton.addEventListener('click', () => {
