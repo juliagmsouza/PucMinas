@@ -1,173 +1,252 @@
-//Model
-const model = {
-    todos: [],
-    addTodo: function (todo) {
-        this.todos.push(todo);
-    },
-    // removeTodo: function (index) {
-    //     this.todos.splice(index, 1);
-    // },
-};
+// Model
+class TodoModel {
+    constructor() {
+        this.todos = []; // Array para armazenar as tarefas
+    }
 
-//View
-const view = {
-    todoList: document.getElementById('to-do-list'),
-    renderTodo: function (todo)
- {
-    // Cria Div que guardará o texto dentro da tag Li (Foi usado div ao invés de span pois a div permite paddings)
-    const todoDiv = document.createElement('div');
-    todoDiv.textContent = todo;
-    
-    // Cria textarea para edição do item
-    const editTextarea = document.createElement('textarea');
-    editTextarea.classList.add('to-do-form-input-class');
-    editTextarea.style.display = "none"; // Ficará oculta até o clique no botão de edição
-    editTextarea.setAttribute('maxlength', 64); // Número máximo de caracteres
-    editTextarea.setAttribute('rows', 4); // Número máximo de linhas
-    editTextarea.setAttribute('cols', 16); // Número máximo de caracteres por linha
- 
-    // Cria botão com funcionalidade de deletar o item já criado
-    const deleteButton = document.createElement('button');
-    deleteButton.classList.add('delete-button'); // Adiciona classe ao botão
-    const img = document.createElement('img'); // Cria elemento de imagem
-    img.src = 'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/solid/trash-alt.svg'; // Define url da imagem
-    deleteButton.appendChild(img); // Adiciona imagem ao botão
-    
-    // Cria botão com funcionalidade de concluir o item já criado
-    const doneButton = document.createElement('button');
-    doneButton.classList.add('done-button');
-    const imgDone = document.createElement('img');
-    imgDone.src = 'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/solid/check.svg';
-    doneButton.appendChild(imgDone);
+    // Método para adicionar uma nova tarefa
+    addTodo(todoText) {
+        const todo = { text: todoText, completed: false }; // Cria um objeto de tarefa com texto e estado
+        this.todos.push(todo); // Adiciona a tarefa ao array de tarefas
+    }
 
-    // Cria botão com funcionalidade de editar o item já criado
-    const editButton = document.createElement('button');
-    editButton.classList.add('edit-button');
-    const imgEdit = document.createElement('img');
-    imgEdit.src = 'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/pen.svg';
-    editButton.appendChild(imgEdit);
-
-    // Cria botão com funcionalidade de salvar edição do item
-    const saveButton = document.createElement('button');
-    saveButton.classList.add('delete-button'); // Adiciona classe para definir posicionamento igual ao do botão de deletar
-    saveButton.style.display = 'none'; // Oculta botão até o momento da edição
-    const imgSave = document.createElement('img'); // Cria elemento de imagem
-    imgSave.src = 'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/floppy-disk.svg'; // Define url da imagem
-    saveButton.appendChild(imgSave); // Adiciona imagem ao botão
-    
-    // Cria Li e adiciona todos os itens acima nele
-    const todoItem = document.createElement('li');
-    todoItem.appendChild(todoDiv);
-    todoItem.appendChild(editTextarea);
-    todoItem.appendChild(deleteButton);
-    todoItem.appendChild(doneButton);
-    todoItem.appendChild(editButton);
-    todoItem.appendChild(saveButton);
-    this.todoList.appendChild(todoItem); // Adiciona li na lista (Ul) de itens para fazer
-
-    // Cria evento para escutar clique no botão de deletar item
-    deleteButton.addEventListener('click', () => {
-        const parentElement = deleteButton.parentElement; // Obtém elemento pai
-        if(parentElement) { // Se elemento pai existir ele é removido
-            parentElement.remove();
+    // Método para remover uma tarefa com base no índice
+    removeTodo(index) {
+        if (index >= 0 && index < this.todos.length) {
+            this.todos.splice(index, 1); // Remove a tarefa do array
         }
-    });
+    }
 
-    // Cria evento para escutar clique no botão de concluir item
-    doneButton.addEventListener('click', () => {
-        const parentElement = doneButton.parentElement; // Obtém elemento pai
-        if(parentElement) {  //Se elemento pai existir 
-            parentElement.remove(); // Remove elemento pai (Item na lista de "para fazer")
-            const doneList = document.getElementById('done-list') // Busca a lista (Tag UL) de itens concluídos
-            doneButton.remove(); // Remove botão de concluir
-            editButton.remove(); // Remove botão de edição
-            todoItem.classList.add('done-li') // Adiciona classe para mudar o li de cor
-            doneList.appendChild(todoItem); // Adiciona o LI (criado na linha 59) na lista de concluídos
+    // Método para marcar uma tarefa como concluída com base no índice
+    markAsCompleted(index) {
+        if (index >= 0 && index < this.todos.length) {
+            this.todos[index].completed = true; // Define o estado da tarefa como concluída
         }
-    });
+    }
 
-    // Cria evento para escutar clique no botão de editar item
-    editButton.addEventListener('click', () => {
-        const parentElement = editButton.parentElement; // Obtém elemento pai
-        if(parentElement) {
-            const childTextareaElement = parentElement.getElementsByTagName('textarea')[0]; // Busca textarea no elemento pai
-            const childDivElement = parentElement.getElementsByTagName('div')[0]; // Busca div com texto no elemento pai
-            childTextareaElement.textContent = childDivElement.textContent; // Adiciona o texto da div na textarea para ser editado
-            doneButton.style.display = "none"; // Oculta botão de conclusão
-            editButton.style.display = "none"; // Oculta botão de edição
-            deleteButton.style.display = "none"; // Oculta botão de deletar item
-            saveButton.style.display = "inline-block"; // Exibe botão de salvar edição
-            childDivElement.style.display = "none"; // Oculta div com texto
-            childTextareaElement.style.display = "inline-block"; // Exibe textarea de edição
+    // Método para editar uma tarefa com base no índice e novo texto
+    editTodo(index, newText) {
+        if (index >= 0 && index < this.todos.length) {
+            this.todos[index].text = newText; // Atualiza o texto da tarefa
         }
-    });
+    }
+}
 
-    // Cria evento para escutar clique no botão de salvar edição
-    saveButton.addEventListener('click', () => {
-        const parentElement = saveButton.parentElement; // Obtém elemento pai
-        if(parentElement) {
-            const childTextareaElement = parentElement.getElementsByTagName('textarea')[0]; // Busca textarea no elemento pai
-            const childDivElement = parentElement.getElementsByTagName('div')[0]; // Busca div com texto no elemento pai
-            childDivElement.textContent = childTextareaElement.value; // Define texto da div com o texto editado na textarea
-            doneButton.style.display = "inline-block"; // Exibe botão de concluir item
-            editButton.style.display = "inline-block"; // Exibe botão de editar item
-            deleteButton.style.display = "inline-block"; // Exibe botão de deletar item
-            saveButton.style.display = "none"; // Oculta botão de salvar edição
-            childTextareaElement.style.display = "none"; // Oculta textarea de edição
-            childDivElement.style.display = "block"; // Exibe div com texto editado
-        }
-    });
+// View
+class TodoView {
+    constructor() {
+        // Obtém elementos do DOM
+        this.todoList = document.getElementById('to-do-list'); // Lista de tarefas a fazer
+        this.doneList = document.getElementById('done-list'); // Lista de tarefas concluídas
+        this.todoInput = document.getElementById('to-do-input'); // Campo de entrada de nova tarefa
+        this.todoForm = document.getElementById('to-do-form'); // Formulário para adicionar tarefas
+        this.orderButton = document.getElementById('order-button'); // Botão para ordenar tarefas a fazer
+        this.orderDoneButton = document.getElementById('order-done-list-button'); // Botão para ordenar tarefas concluídas
 
- },
-};
-
-//Controller
-const controller = {
-    init: function(){
-        const todoForm = document.getElementById('to-do-form');
-        todoForm.addEventListener('submit', function(event){
-            event.preventDefault();
-            const todoInput = document.getElementById('to-do-input');
-            const todo = todoInput.value;
-            if(todo.trim()!== ''){
-                model.addTodo(todo);
-                view.renderTodo(todo);
-                todoInput.value = '';
+        // Adiciona ouvintes de eventos aos elementos do DOM
+        this.todoForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Impede o envio padrão do formulário
+            const todoText = this.todoInput.value.trim(); // Obtém o texto da nova tarefa
+            if (todoText !== '') {
+                this.controller.addTodo(todoText); // Chama o controlador para adicionar a nova tarefa
+                this.todoInput.value = ''; // Limpa o campo de entrada
             }
         });
 
-        // Cria evento para escutar cliques no botão de ordenação na lista de itens para fazer
-        const orderButton = document.getElementById('order-button'); // Obtém botão de ordenação pelo id
-        orderButton.addEventListener('click', () => {
-            const ul = document.getElementById('to-do-list'); // Obtém lista de elementos (Ul)
-            const lis = ul.getElementsByTagName('li'); // Obém elementos (Li) dentro da lista (Ul)
-            const liArray = Array.from(lis); // Cria array a partir dos elementos obtidos
-            liArray.sort((a, b) => {
-                return a.textContent.localeCompare(b.textContent); // Utiliza função localeCompare para ordenar os itens do vetor
-            });
+        // Adiciona ouvintes de eventos para ordenar as listas
+        this.orderButton.addEventListener('click', () => {
+            this.controller.sortTodoList('to-do-list'); // Chama o controlador para ordenar a lista de tarefas a fazer
+        });
 
-            ul.innerHTML = ''; // Limpa lista de elementos
-            liArray.forEach(li => {
-                ul.appendChild(li); // Adiciona novamente os elementos (Li) na lista, agora de forma ordenada.
-            });
-        })
+        this.orderDoneButton.addEventListener('click', () => {
+            this.controller.sortTodoList('done-list'); // Chama o controlador para ordenar a lista de tarefas concluídas
+        });
+    }
 
-        // Cria evento para escutar cliques no botão de ordenação na lista de itens concluidos
-        const orderDoneButton = document.getElementById('order-done-list-button');
-        orderDoneButton.addEventListener('click', () => {
-            const ul = document.getElementById('done-list');
-            const lis = ul.getElementsByTagName('li');
-            const liArray = Array.from(lis);
-            liArray.sort((a, b) => {
-                return a.textContent.localeCompare(b.textContent);
-            });
-            ul.innerHTML = '';
-            liArray.forEach(li => {
-                ul.appendChild(li);
-            });
-        })
-    },
-};
+    // Define o controlador para esta visualização
+    setController(controller) {
+        this.controller = controller;
+    }
 
-controller.init();
+    // Método para renderizar a lista de tarefas
+    render() {
+        this.todoList.innerHTML = ''; // Limpa a lista de tarefas a fazer
+        this.doneList.innerHTML = ''; // Limpa a lista de tarefas concluídas
 
+        // Renderiza cada tarefa na lista
+        this.controller.model.todos.forEach((todo, index) => {
+            this.renderTodo(todo, index); // Chama o método para renderizar uma tarefa
+        });
+    }
+
+    // Método para renderizar uma única tarefa
+    renderTodo(todo, index) {
+        const editTextarea = document.createElement('textarea');
+
+        editTextarea.classList.add('to-do-form-input-class');
+        editTextarea.style.display = "none"; // Ficará oculta até o clique no botão de edição
+        editTextarea.setAttribute('maxlength', 64); // Número máximo de caracteres
+        editTextarea.setAttribute('rows', 4); // Número máximo de linhas
+        editTextarea.setAttribute('cols', 16); // Número máximo de caracteres por linha
+        editTextarea.setAttribute('id', `edit-textarea-${index}`);
+
+        const todoItem = document.createElement('li'); // Cria um elemento <li> para a tarefa
+
+        const todoText = document.createElement('div'); // Cria um elemento <div> para exibir o texto da tarefa
+        todoText.setAttribute('id', `div-${index}`); // Define o texto da tarefa
+        todoText.textContent = todo.text; // Define o texto da tarefa
+
+        // Cria botões e adiciona ouvintes de eventos para ações como excluir, concluir e editar
+        const deleteButton = this.createButton(`delete-button-${index}`, 'delete-button', 'trash-alt.svg', () => {
+            this.controller.removeTodo(index); // Chama o controlador para remover a tarefa
+        });
+
+        const doneButton = this.createButton(`done-button-${index}`, 'done-button', 'check.svg', () => {
+            this.controller.markAsCompleted(index); // Chama o controlador para marcar a tarefa como concluída
+        });
+
+        const editButton = this.createButton(`edit-button-${index}`, 'edit-button', 'pen.svg', () => {
+            this.controller.editTodo(index); // Chama o controlador para editar a tarefa
+        });
+
+        const saveButton = this.createButton(`save-button-${index}`, 'delete-button', 'save.svg', () => {
+            this.controller.saveTodo(index); // Chama o controlador para salvar a tarefa
+        });
+
+        saveButton.style.display = 'none';
+
+        todoItem.appendChild(editTextarea); // Adiciona o textarea
+        todoItem.appendChild(todoText); // Adiciona o texto da tarefa ao elemento <li>
+        todoItem.appendChild(deleteButton); // Adiciona o botão de exclusão
+        todoItem.appendChild(doneButton); // Adiciona o botão de conclusão
+        todoItem.appendChild(editButton); // Adiciona o botão de edição
+        todoItem.appendChild(saveButton); // Adiciona o botão de salvar
+
+        if (todo.completed) {
+            editButton.style.display = 'none';
+            doneButton.style.display = 'none';
+            todoItem.classList.add('done-li'); // Adiciona uma classe para indicar que a tarefa está concluída
+            this.doneList.appendChild(todoItem); // Adiciona a tarefa à lista de tarefas concluídas
+        } else {
+            this.todoList.appendChild(todoItem); // Adiciona a tarefa à lista de tarefas a fazer
+        }
+    }
+
+    // Método para criar um botão com uma classe CSS, ícone e ouvinte de eventos
+    createButton(id, className, iconFileName, clickHandler) {
+        const button = document.createElement('button'); // Cria um elemento <button>
+        button.classList.add(className); // Adiciona a classe CSS especificada
+        const img = document.createElement('img'); // Cria um elemento <img> para o ícone
+        img.src = `https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/solid/${iconFileName}`; // Define a fonte do ícone
+        button.appendChild(img); // Adiciona o ícone ao botão
+        button.addEventListener('click', clickHandler); // Adiciona um ouvinte de eventos de clique
+        button.setAttribute('id', id);
+        return button; // Retorna o botão criado
+    }
+
+    showTextarea(index) {
+        // Obtem elementos através do Id
+        const deleteButton = document.getElementById(`delete-button-${index}`);
+        const editButton = document.getElementById(`edit-button-${index}`);
+        const doneButton = document.getElementById(`done-button-${index}`);
+        const saveButton = document.getElementById(`save-button-${index}`);
+        const textarea = document.getElementById(`edit-textarea-${index}`);
+        const div = document.getElementById(`div-${index}`);
+
+        //Configura estilos de exibição dos botões e das tags div e textarea
+        div.style.display = 'none';
+        textarea.style.display = 'block';
+        deleteButton.style.display = 'none';
+        editButton.style.display = 'none';
+        doneButton.style.display = 'none';
+        saveButton.style.display = 'block';
+
+        // Atualiza o texto da tarefa
+        textarea.textContent = div.textContent;
+    }
+
+    saveTodo(index) {
+        // Obtem elementos através do Id
+        const deleteButton = document.getElementById(`delete-button-${index}`);
+        const editButton = document.getElementById(`edit-button-${index}`);
+        const doneButton = document.getElementById(`done-button-${index}`);
+        const saveButton = document.getElementById(`save-button-${index}`);
+        const textarea = document.getElementById(`edit-textarea-${index}`);
+        const div = document.getElementById(`div-${index}`);
+
+        //Configura estilos de exibição dos botões e das tags div e textarea
+        div.style.display = 'block';
+        textarea.style.display = 'none';
+        deleteButton.style.display = 'inline';
+        editButton.style.display = 'inline';
+        doneButton.style.display = 'inline';
+        saveButton.style.display = 'none';
+
+        // Atualiza o texto da tarefa
+        div.textContent = textarea.value;
+    }
+}
+
+// Controller
+class TodoController {
+    constructor(model, view) {
+        this.model = model; // Recebe o modelo
+        this.view = view; // Recebe a visualização
+        this.view.setController(this); // Define o controlador para a visualização
+    }
+
+    // Método para adicionar uma nova tarefa
+    addTodo(todoText) {
+        this.model.addTodo(todoText); // Chama o modelo para adicionar a tarefa
+        this.view.renderTodo(this.model.todos[this.model.todos.length - 1], this.model.todos.length - 1); // Chama a visualização para renderizar a nova tarefa
+    }
+
+    // Método para remover uma tarefa com base no índice
+    removeTodo(index) {
+        this.model.removeTodo(index); // Chama o modelo para remover a tarefa
+        this.view.render(); // Chama a visualização para atualizar a lista de tarefas
+    }
+
+    // Método para marcar uma tarefa como concluída com base no índice
+    markAsCompleted(index) {
+        this.model.markAsCompleted(index); // Chama o modelo para marcar a tarefa como concluída
+        this.view.render(); // Chama a visualização para atualizar a lista de tarefas
+    }
+
+    // Método para editar uma tarefa com base no índice
+    editTodo(index) {
+        this.view.showTextarea(index)
+    }
+
+    // Método para salvar uma tarefa editada
+    saveTodo(index) {
+        this.view.saveTodo(index)
+    }
+
+    // Método para ordenar a lista de tarefas
+    sortTodoList(listId) {
+        const ul = document.getElementById(listId); // Obtém a lista com base no ID especificado
+        const lis = ul.getElementsByTagName('li'); // Obtém elementos <li> na lista
+        const liArray = Array.from(lis); // Converte a coleção de elementos em um array
+        liArray.sort((a, b) => {
+            return a.textContent.localeCompare(b.textContent); // Ordena os elementos com base no texto
+        });
+
+        ul.innerHTML = ''; // Limpa a lista
+        liArray.forEach((li) => {
+            ul.appendChild(li); // Adiciona os elementos novamente, agora em ordem
+        });
+    }
+
+    // Método de inicialização
+    init() {
+        this.view.render(); // Renderiza as tarefas iniciais
+    }
+}
+
+// Cria uma instância do modelo, da visualização e do controlador
+const model = new TodoModel();
+const view = new TodoView();
+const controller = new TodoController(model, view);
+
+controller.init(); // Inicializa o controlador e a aplicação
