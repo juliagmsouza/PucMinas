@@ -25,7 +25,7 @@ class TodoModel {
     }
 
     // Método para editar uma tarefa com base no índice e novo texto
-    editTodo(index, newText) {
+    saveTodo(index, newText) {
         if (index >= 0 && index < this.todos.length) {
             this.todos[index].text = newText; // Atualiza o texto da tarefa
         }
@@ -184,6 +184,7 @@ class TodoView {
 
         // Atualiza o texto da tarefa
         div.textContent = textarea.value;
+        return textarea.value
     }
 }
 
@@ -220,7 +221,8 @@ class TodoController {
 
     // Método para salvar uma tarefa editada
     saveTodo(index) {
-        this.view.saveTodo(index)
+        const newValue = this.view.saveTodo(index)
+        this.model.saveTodo(index, newValue)
     }
 
     // Método para ordenar a lista de tarefas
