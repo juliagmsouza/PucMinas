@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css?family=Bebas+Neue");
+
+body {
+    background-color: #5C6662;
+}
+button {
+    background-color: #5C6662 !important;
+    border: none !important;
+}
+button:hover {
+    background-color: #D5EDE4 !important;
+    font-weight: 600 !important;
+    color: #5C6662 !important;
+}
+textarea {
+    border: none !important;
+}
+textarea:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+textarea:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.navbar {
+    background-color: #B3C7BF !important;
+    font-family: "Bebas Neue", serif;
+    font-size: 150%;
+}
+.navbar-brand {
+    font-size: 150% !important;
+}
+.card-body {
+    background-color: #B3C7BF !important;
+}
+.carousel-inner {
+    background-color: #B3C7BF !important;
+}
+.carousel {
+    background-color: #B3C7BF !important;
+}
+.align-controls {
+    margin-bottom: 40% !important;
+}
+.form-control {
+    background-color: rgba(92, 102, 98) !important;
+    color: #FFF !important;
+}
+.card {
+    background-color: #B3C7BF !important;
+}
+.btn-primary:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.btn-primary:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.align-suggestions-btn {
+    align-self: center !important;
+    border: none !important;
+    background-color: #B3C7BF !important;
+}
+.comments-align {
+    margin-top: -2%;
+}
+.comments-add-align {
+    margin-top: -2%;
+}
+.align-card-li {
+    margin-top: -6% !important;
+}
+.list-group-item {
+    background-color: #91A19A !important;
+}

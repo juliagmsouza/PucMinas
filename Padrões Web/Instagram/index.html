@@ -8,6 +8,7 @@
   <!-- Inclua os arquivos CSS do Bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+  <link rel="stylesheet" href="instagram.css" />
 </head>
 
 <body>
@@ -41,47 +42,71 @@
     <div class="row">
       <section class="col-md-8">
         <!-- Postagens -->
-        <div id="carouselExampleControls" class="carousel slide card mb-3" data-ride="carousel">
+        <div class="card mb-3">
+          <img src="images/bicicletaAmarela.png" class="card-img-top" alt="Wolf upping the mountain" />
+          <div class="card-body">
+            <h5 class="card-title">Tons de verão</h5>
+            <p class="card-text"><strong>BikeVibe:</strong> Um toque de cor nas rodas: uma bicicleta amarela com um cesto repleto de flores, em frente a uma casa pitoresca 🚲🌼🏡</p>
+          </div>
+        </div>
+        <div id="carouselExampleControls" class="carousel slide card mb-3" data-interval="false">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="images/gato4.jpg" class="card-img-top" alt="Cute cat" />
+              <img src="images/motoAzul.png" class="card-img-top" alt="Cute cat" />
             </div>
             <div class="carousel-item">
-              <img src="images/gato2.jpg" class="card-img-top" alt="Cute cat" />
+              <img src="images/motoBranca.png" class="card-img-top" alt="Cute cat" />
             </div>
             <div class="carousel-item">
-              <img src="images/gato3.jpg" class="card-img-top" alt="Cute cat" />
+              <img src="images/motoAmarela.png" class="card-img-top" alt="Cute cat" />
+            </div>
+            <div class="carousel-item">
+              <img src="images/motoVermelha.png" class="card-img-top" alt="Cute cat" />
             </div>
             <div class="card-body">
-              <h5 class="card-title">Cats Media Carousel</h5>
-              <p class="card-text">Cute cats</p>
+              <h5 class="card-title">Jardins, Vespa e Memórias: Uma Viagem Nostálgica</h5>
+              <p class="card-text"><strong>BikeVibe: </strong>Viajando no tempo com a Vespa: um passeio charmoso pelas ruas antigas, onde o passado se encontra com o presente. 🛵🏡✨ #VespaVintage #ElegânciaRetrô #RetroRide</p>
             </div>
-            <div class="card-body">
+            <div class="card-body comments-align">
               <h5 class="card-title">Comentários</h5>
-              <p id="comments" class="card-text"></p>
+              <p id="comments" class="card-text px-1 mb-3"></p>
             </div>
-            <form class="mx-4">
+            <form class="mx-4 align-comments comments-add-align">
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Adicionar comentário: </label>
                 <textarea id="comment-cats" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
               </div>
-              <button id="catForms" type="submit" class="btn btn-primary float-right mb-2">Enviar</button>
+              <button id="catForms" type="button" class="btn btn-primary float-right mb-2">Enviar</button>
             </form>
           </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <a class="align-controls carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <a class="align-controls carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
         </div>
         <div class="card mb-3">
-          <img src="images/gato2.jpg" class="card-img-top" alt="Wolf upping the mountain" />
+          <img src="images/bicicletaRoxa.png" class="card-img-top" alt="Wolf upping the mountain" />
           <div class="card-body">
-            <h5 class="card-title">Wolf Media</h5>
-            <p class="card-text">Wolf upping the mountain</p>
+            <h5 class="card-title">Um Corredor de História e Cores</h5>
+            <p class="card-text"><strong>BikeVibe: </strong>Entre o passado e o presente, a simplicidade da bicicleta roxa encontra o charme das casas antigas e a vida que floresce. 🚲🌿🏡 #BikeVibe #HistóriaeNatureza</p>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <img src="images/bicicletaVerde.png" class="card-img-top" alt="Wolf upping the mountain" />
+          <div class="card-body">
+            <h5 class="card-title">Cores da Vida Cotidiana</h5>
+            <p class="card-text"><strong>BikeVibe: </strong>O cotidiano ganha vida quando as cores se unem em harmonia. 🚲💚 💛 🏡 #VidaCotidiana #HarmoniaDeCores #BikeVibe</p>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <img src="images/bicicletaRosa.png" class="card-img-top" alt="Wolf upping the mountain" />
+          <div class="card-body">
+            <h5 class="card-title">Pedalando pelas Paisagens da Holanda</h5>
+            <p class="card-text"><strong>BikeVibe: </strong>Harmonia à beira d'água 🚲🌷💈</p>
           </div>
         </div>
         <!-- Adicione mais postagens aqui -->
@@ -89,48 +114,18 @@
       <section class="col-md-4 center">
         <!-- Informações do Perfil -->
         <section class="card mb-3">
-          <img src="images/catOwner.webp" class="card-img-top" alt="Imagem de Perfil" />
+          <img src="images/queen.jpg" class="card-img-top" alt="Imagem de Perfil" />
           <div class="card-body">
-            <h5 class="card-title">Cat</h5>
-            <p class="card-text">pspsps</p>
-            <a href="#" class="btn btn-primary btn-block">Seguir</a>
+            <h5 class="card-title"><strong>@BikeVibe</strong></h5>
+            <p class="card-text">Explorando o mundo sobre duas rodas com estilo e elegância. 🚲🛵🌻🌼🌷 Compartilhando a beleza das motos Vespa e o encanto das bicicletas em cenários vintage. #BikeVibe</p>
+            <button id="followBtn3" class="btn btn-primary btn-block">Seguir</button>
           </div>
         </section>
-        <!-- Sugestões de Seguir -->
-        <!-- <section class="card">
-            <div class="card-body">
-              <h5 class="card-title">Sugestões para Seguir</h5>
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <img
-                    src="images/coolCat.webp"
-                    alt="Sugestão 1"
-                    class="card-img-top"
-                  />
-                  The coolest cat
-                  <div>
-                    <a href="#" class="btn btn-primary btn-sm mt-1">Seguir</a>
-                  </div>
-                </li>
-                <li class="list-group-item">
-                  <img
-                    src="images/badCat.png"
-                    alt="Sugestão 2"
-                    class="card-img-top"
-                  />
-                  Very Bad Cat
-                  <div>
-                    <a href="#" class="btn btn-primary btn-sm mt-1">Seguir</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </section> -->
         <div id="accordion">
           <div class="card">
-            <div class="card-header" id="headingOne">
+            <div class="card-header align-suggestions-btn" id="headingOne">
               <h5 class="mb-0">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
                   aria-controls="collapseOne">
                   Sugestões para seguir
                 </button>
@@ -139,19 +134,15 @@
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
               <div class="card-body">
                 <ul class="list-group">
-                  <li class="list-group-item">
-                    <img src="images/coolCat.webp" alt="Sugestão 1" class="card-img-top" />
-                    The coolest cat
-                    <div>
-                      <a href="#" class="btn btn-primary btn-sm mt-1">Seguir</a>
-                    </div>
+                  <li class="list-group-item mb-3 align-card-li">
+                    <img src="images/motoQueen.jpg" alt="Sugestão 1" class="card-img-top" />
+                    <p class="mt-3"><strong>@VespaVintage</strong></p>
+                      <button type="button" id="followBtn1" class="btn btn-primary btn-sm">Seguir</button>
                   </li>
                   <li class="list-group-item">
-                    <img src="images/badCat.png" alt="Sugestão 2" class="card-img-top" />
-                    Very Bad Cat
-                    <div>
-                      <a href="#" class="btn btn-primary btn-sm mt-1">Seguir</a>
-                    </div>
+                    <img src="images/motoQueen2.jpg" alt="Sugestão 2" class="card-img-top" />
+                    <p class="mt-3"><strong>@MotorAesthetics</strong></p>
+                      <button id="followBtn2"class="btn btn-primary btn-sm">Seguir</button>
                   </li>
                 </ul>
               </div>
@@ -171,8 +162,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
-
   <script src="app2.js"></script>
 </body>
-
 </html>
