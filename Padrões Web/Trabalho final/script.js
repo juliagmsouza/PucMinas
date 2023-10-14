@@ -1,46 +1,7 @@
 const API_KEY = 'c2ec1a65900c0c1778e092fd95ec6a76';
-// function main() {
-//     var getLocationKey = new XMLHttpRequest();
-//     var getForecast = new XMLHttpRequest();
-
-
-//     getLocationKey.open('GET', `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${lat},${lon}`,true);
-
-    
-//     getLocationKey.onload = function() { 
-//         if(getLocationKey.status >= 200 && getLocationKey.status < 300) {
-//             console.log('requisição de localização bem sucedida: ', JSON.parse(getLocationKey.responseText));
-//             const response = JSON.parse(getLocationKey.responseText);
-//             key = response.Key;
-//             getForecast.open('GET',  `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${lat},${lon}`,true);
-//             getForecast.send();
-//         }
-//         else {
-//             console.log('Falha na requisição de localização:', getLocationKey.status);
-//         }
-//     };
-
-//     getLocationKey.onerror = function() { 
-//         console.log('Erro de rede.');
-//     };
-
-//     getForecast.onload = function() { 
-//         if(getForecast.status >= 200 && getForecast.status < 300) {
-//             console.log('requisição de previsão do tempo bem sucedida: ', JSON.parse(getForecast.responseText));
-//         }
-//         else {
-//             console.log('Falha na requisição de previsão do tempo:', getForecast.status);
-//         }
-//     };
-
-//     getForecast.onerror = function() { 
-//         console.log('Erro de rede.');
-//     };
-
-//     getLocationKey.send();
-// }
 
 async function main() {
+
     const lat = -20.398970;
     const lon = -43.511945;
     const unit = 'metric';

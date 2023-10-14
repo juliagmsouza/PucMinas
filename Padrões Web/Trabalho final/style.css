@@ -41,6 +41,7 @@ body {
 }
 
 #card {
+	animation: lightning 0.3s linear infinite;
 	box-shadow: 9px 7px 40px -6px rgba(0, 0, 0, 0.25);
 	overflow: hidden;
 	width: 300px;
@@ -95,5 +96,33 @@ body {
 			margin-left: 5px;
 		}
 	}
+
+	.storm-text {
+		color: #FFF;
+	}
 }
 
+
+@keyframes lightning {
+    0% {
+        opacity: 0;
+    }
+    11% {
+        opacity: 1;
+    }
+    14% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    21% {
+        opacity: 1;
+    }
+	24% {
+		opacity: 0;
+	}
+	104% {
+		opacity: 0;
+	}
+}

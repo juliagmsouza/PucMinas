@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-sacle=1.0" />
-    <title>Formulário</title>
+    <title>App Previsão do Tempo</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/cloud-sun-rain.svg" type="image/x-icon"/>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="clouds.css" />
     <link rel="stylesheet" href="rain.css" />
+    <link rel="stylesheet" href="thunder.css" />
 </head>
 
 <body>
     <div class="background">
         <div class="container">
-            <div id="card" class="rain-weather">
-                <div class="details">
+            <div id="card" class="storm-weather">
+                <div class="details storm-text">
                     <div class="temp">20<span class="celsius">c</span></div>
                     <div class="right">
                         <div id="date">Monday 22 August</div>
@@ -23,101 +25,103 @@
                 </div>
                 <div class="outter-clouds">
                     <div class="cloud1">
-                        <div class="cl1 light-cloud">
+                        <div class="cl1 storm-light-cloud">
                         </div>
-                        <div class="cl2 light-cloud">
+                        <div class="cl2 storm-light-cloud">
                         </div>
-                        <div class="cl3 light-cloud">
+                        <div class="cl3 storm-light-cloud">
                         </div>
-                        <div class="cl4 light-cloud">
-                        </div>
-                    </div>
-                    <div class="cloud1">
-                        <div class="cl1 light-cloud ">
-                        </div>
-                        <div class="cl2 light-cloud ">
-                        </div>
-                        <div class="cl3 light-cloud ">
-                        </div>
-                        <div class="cl4 light-cloud ">
+                        <div class="cl4 storm-light-cloud">
                         </div>
                     </div>
                     <div class="cloud1">
-                        <div class="cl1 light-cloud">
+                        <div class="cl1 storm-light-cloud ">
                         </div>
-                        <div class="cl2 light-cloud">
+                        <div class="cl2 storm-light-cloud ">
                         </div>
-                        <div class="cl3 light-cloud">
+                        <div class="cl3 storm-light-cloud ">
                         </div>
-                        <div class="cl4 light-cloud">
+                        <div class="cl4 storm-light-cloud ">
                         </div>
                     </div>
                     <div class="cloud1">
-                        <div class="cl1 light-cloud ">
+                        <div class="cl1 storm-light-cloud">
                         </div>
-                        <div class="cl2 light-cloud ">
+                        <div class="cl2 storm-light-cloud">
                         </div>
-                        <div class="cl3 light-cloud ">
+                        <div class="cl3 storm-light-cloud">
                         </div>
-                        <div class="cl4 light-cloud ">
+                        <div class="cl4 storm-light-cloud">
                         </div>
                     </div>
+                    <div class="cloud1">
+                        <div class="cl1 storm-light-cloud ">
+                        </div>
+                        <div class="cl2 storm-light-cloud ">
+                        </div>
+                        <div class="cl3 storm-light-cloud ">
+                        </div>
+                        <div class="cl4 storm-light-cloud ">
+                        </div>
+                    </div>
+                </div>
+                <div class="thunderbolt">
+                    <div class="shape"></div>
                 </div>
                 <div class="inner-clouds">
                     <div class="cloud1">
-                        <div class="cl1 dark-cloud">
+                        <div class="cl1 storm-dark-cloud">
                         </div>
-                        <div class="cl2 dark-cloud">
+                        <div class="cl2 storm-dark-cloud">
                         </div>
-                        <div class="cl3 dark-cloud">
+                        <div class="cl3 storm-dark-cloud">
                         </div>
-                        <div class="cl4 dark-cloud">
-                        </div>
-                    </div>
-                    <div class="cloud1">
-                        <div class="cl1 dark-cloud ">
-                        </div>
-                        <div class="cl2 dark-cloud ">
-                        </div>
-                        <div class="cl3 dark-cloud ">
-                        </div>
-                        <div class="cl4 dark-cloud ">
+                        <div class="cl4 storm-dark-cloud">
                         </div>
                     </div>
                     <div class="cloud1">
-                        <div class="cl1 dark-cloud">
+                        <div class="cl1 storm-dark-cloud ">
                         </div>
-                        <div class="cl2 dark-cloud">
+                        <div class="cl2 storm-dark-cloud ">
                         </div>
-                        <div class="cl3 dark-cloud">
+                        <div class="cl3 storm-dark-cloud ">
                         </div>
-                        <div class="cl4 dark-cloud">
+                        <div class="cl4 storm-dark-cloud ">
                         </div>
                     </div>
                     <div class="cloud1">
-                        <div class="cl1 dark-cloud ">
+                        <div class="cl1 storm-dark-cloud">
                         </div>
-                        <div class="cl2 dark-cloud ">
+                        <div class="cl2 storm-dark-cloud">
                         </div>
-                        <div class="cl3 dark-cloud ">
+                        <div class="cl3 storm-dark-cloud">
                         </div>
-                        <div class="cl4 dark-cloud ">
+                        <div class="cl4 storm-dark-cloud">
+                        </div>
+                    </div>
+                    <div class="cloud1">
+                        <div class="cl1 storm-dark-cloud ">
+                        </div>
+                        <div class="cl2 storm-dark-cloud ">
+                        </div>
+                        <div class="cl3 storm-dark-cloud ">
+                        </div>
+                        <div class="cl4 storm-dark-cloud ">
                         </div>
                     </div>
                 </div>
-                <div class="rain">
+                <div class="storm">
                     <div class="drop slow"></div>
                     <div class="drop faster"></div>
                     <div class="drop slower"></div>
-                    <div class="drop ultrafast"></div>
                     <div class="drop"></div>
+                    <div class="drop ultrafast"></div>
                     <div class="drop fast"></div>
-                    <div class="drop slower"></div>
-                    <div class="drop faster"></div>
                     <div class="drop slow"></div>
-                    <div class="drop ultrafast"></div>
-                    <div class="drop"></div>
+                    <div class="drop faster"></div>
                     <div class="drop slower"></div>
+                    <div class="drop"></div>
+                    <div class="drop ultrafast"></div>
                     <div class="drop fast"></div>
                 </div>
             </div>
