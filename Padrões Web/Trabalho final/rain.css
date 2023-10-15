@@ -18,29 +18,6 @@
             hsl(0, 0%, 24%) 100%);
 }
 
-.storm-weather {
-    background: linear-gradient(
-        to bottom,
-        hsl(227.04, 81.7%, 30%) 0%,
-        hsl(227.02, 81.71%, 29.82%) 8.1%,
-        hsl(226.95, 81.73%, 29.32%) 15.5%,
-        hsl(226.84, 81.77%, 28.52%) 22.5%,
-        hsl(226.68, 81.84%, 27.46%) 29%,
-        hsl(226.46, 81.92%, 26.16%) 35.3%,
-        hsl(226.16, 82.04%, 24.64%) 41.2%,
-        hsl(225.75, 82.2%, 22.93%) 47.1%,
-        hsl(225.19, 82.44%, 21.03%) 52.9%,
-        hsl(224.42, 82.77%, 19%) 58.8%,
-        hsl(223.33, 83.28%, 16.84%) 64.7%,
-        hsl(221.76, 84.08%, 14.62%) 71%,
-        hsl(219.49, 85.42%, 12.41%) 77.5%,
-        hsl(216.37, 87.75%, 10.36%) 84.5%,
-        hsl(212.78, 91.63%, 8.74%) 91.9%,
-        hsl(210.77, 95.12%, 8.04%) 100%
-      );
-}
-
-
 .rain {
     max-height: 0;
     display: block;
@@ -90,59 +67,6 @@
     
         &.slower {
             animation-duration: 2.1s;
-        }
-    }
-}
-
-.storm {
-    max-height: 0;
-    display: block;
-    text-align: center;
-    margin: auto;
-    height: 320px;
-    width: 300px;
-    overflow: hidden;
-    position: relative;
-    top: 30%;
-    left: 0%;
-    animation: rain-visibility 1s ease 8s forwards;
-
-    .drop {
-        display: inline-block;
-        background: #FFF;
-        height: 25px;
-        width: 7px;
-        margin: 5px;
-        border-radius: 25px;
-        opacity: 0.85;
-        animation-name: drop-fall;
-        animation-duration: 1.4s;
-        animation-iteration-count: infinite;
-        animation-delay: 8s;
-    
-        &.fast {
-            opacity: 0.75;
-            animation-duration: 1.1s;
-        }
-    
-        &.ultrafast {
-            opacity: 0.3;
-            animation-duration: 0.4s;
-            animation-name: drop-fall2;
-        }
-    
-        &.faster {
-            opacity: 0.5;
-            animation-duration: 0.7s;
-        }
-
-        &.slow {
-            animation-duration: 1.6s;
-            animation-name: drop-fall2;
-        }
-    
-        &.slower {
-            animation-duration: 1.9s;
         }
     }
 }

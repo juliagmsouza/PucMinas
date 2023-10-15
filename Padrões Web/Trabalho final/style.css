@@ -65,13 +65,6 @@ body {
 		flex-direction: row;
 		justify-content: space-between;
 
-		/* transition: color 2s ease; */
-
-		/* .thunder &
-		{
-			color: #ddd;
-		}
-		 */
 		.right {
 			text-align: right;
 		}
