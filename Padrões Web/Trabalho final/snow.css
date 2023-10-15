@@ -1,0 +1,83 @@
+.snow-weather {
+    background:  linear-gradient(
+        to bottom,
+        hsl(0, 0%, 100%) 0%,
+        hsl(209.7, 34.17%, 99.75%) 8.1%,
+        hsl(209.66, 34.28%, 99.03%) 15.5%,
+        hsl(209.6, 34.45%, 97.9%) 22.5%,
+        hsl(209.52, 34.69%, 96.43%) 29%,
+        hsl(209.42, 34.97%, 94.68%) 35.3%,
+        hsl(209.29, 35.31%, 92.69%) 41.2%,
+        hsl(209.15, 35.69%, 90.53%) 47.1%,
+        hsl(208.99, 36.11%, 88.27%) 52.9%,
+        hsl(208.82, 36.54%, 85.98%) 58.8%,
+        hsl(208.63, 36.99%, 83.74%) 64.7%,
+        hsl(208.45, 37.43%, 81.66%) 71%,
+        hsl(208.28, 37.83%, 79.82%) 77.5%,
+        hsl(208.14, 38.16%, 78.37%) 84.5%,
+        hsl(208.04, 38.38%, 77.4%) 91.9%,
+        hsl(208, 38.46%, 77.06%) 100%
+      );
+}
+
+.snow {
+    max-height: 0;
+    display: block;
+    text-align: center;
+    margin: auto;
+    height: 320px;
+    width: 300px;
+    overflow: hidden;
+    position: relative;
+    top: 30%;
+    left: 0%;
+    animation: rain-visibility 1s ease 8s forwards;
+
+    .drop {
+        display: inline-block;
+        background: #FFF;
+        height: 15px;
+        width: 15px;
+        margin: 5px;
+        border-radius: 50%;
+        opacity: 0.85;
+        animation-name: drop-fall;
+        animation-duration: 1.4s;
+        animation-iteration-count: infinite;
+        animation-delay: 8s;
+        &.fast {
+            height: 10px;
+            width: 10px;
+            opacity: 0.75;
+            animation-duration: 1.2s;
+        }
+    
+        &.ultrafast {
+            height: 13px;
+            width: 13px;
+            opacity: 0.3;
+            animation-duration: 0.7s;
+            animation-name: drop-fall2;
+        }
+    
+        &.faster {
+            height:17px;
+            width: 17px;
+            opacity: 0.5;
+            animation-duration: 1s;
+        }
+
+        &.slow {
+            height: 5px;
+            width: 5px;
+            animation-duration: 1.8s;
+            animation-name: drop-fall2;
+        }
+    
+        &.slower {
+            height: 7px;
+            width: 7px;
+            animation-duration: 2.1s;
+        }
+    }
+}
