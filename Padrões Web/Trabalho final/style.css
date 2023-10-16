@@ -1,8 +1,6 @@
 @import 'https://fonts.googleapis.com/css?family=Lato:300';
 
-html,
-body,
-.background {
+html, body, .background {
 	width: 100%;
 	height: 100%;
 	margin: 0;
@@ -17,15 +15,13 @@ html {
 
 body {
 	background: #eee;
-	background: linear-gradient(0deg, rgba(0, 0, 100, 0.2), rgba(0, 0, 200, 0));
 }
 
 .background {
 	background: #eee;
-	background: linear-gradient(120deg, rgba(50, 150, 100, 0.2), rgba(0, 0, 100, 0));
 }
 
-.container {
+.outter-space {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -37,7 +33,106 @@ body {
 	overflow: auto;
 	position: relative;
 	background: #eee;
-	background: linear-gradient(240deg, rgba(180, 111, 8, 0.3), rgba(0, 0, 200, 0));
+}
+
+.outter-space-rainy {
+	background: linear-gradient(to left top,
+			hsl(120, 0.79%, 75.1%) 0%,
+			hsl(120, 0.77%, 74.67%) 8.1%,
+			hsl(120, 0.72%, 73.44%) 15.5%,
+			hsl(120, 0.65%, 71.51%) 22.5%,
+			hsl(120, 0.57%, 68.93%) 29%,
+			hsl(120, 0.48%, 65.78%) 35.3%,
+			hsl(120, 0.41%, 62.11%) 41.2%,
+			hsl(120, 0.33%, 57.97%) 47.1%,
+			hsl(120, 0.27%, 53.43%) 52.9%,
+			hsl(120, 0.22%, 48.56%) 58.8%,
+			hsl(120, 0.2%, 43.46%) 64.7%,
+			hsl(120, 0.18%, 38.27%) 71%,
+			hsl(120, 0.14%, 33.21%) 77.5%,
+			hsl(120, 0.09%, 28.67%) 84.5%,
+			hsl(120, 0.03%, 25.31%) 91.9%,
+			hsl(0, 0%, 24%) 100%);
+}
+
+.outter-space-snowy {
+	background: linear-gradient(to left top,
+			hsl(0, 0%, 100%) 0%,
+			hsl(209.7, 34.17%, 99.75%) 8.1%,
+			hsl(209.66, 34.28%, 99.03%) 15.5%,
+			hsl(209.6, 34.45%, 97.9%) 22.5%,
+			hsl(209.52, 34.69%, 96.43%) 29%,
+			hsl(209.42, 34.97%, 94.68%) 35.3%,
+			hsl(209.29, 35.31%, 92.69%) 41.2%,
+			hsl(209.15, 35.69%, 90.53%) 47.1%,
+			hsl(208.99, 36.11%, 88.27%) 52.9%,
+			hsl(208.82, 36.54%, 85.98%) 58.8%,
+			hsl(208.63, 36.99%, 83.74%) 64.7%,
+			hsl(208.45, 37.43%, 81.66%) 71%,
+			hsl(208.28, 37.83%, 79.82%) 77.5%,
+			hsl(208.14, 38.16%, 78.37%) 84.5%,
+			hsl(208.04, 38.38%, 77.4%) 91.9%,
+			hsl(208, 38.46%, 77.06%) 100%);
+}
+
+.outter-space-sunny {
+	background: linear-gradient(to left top,
+			hsl(199.07, 92.64%, 68.04%) 0%,
+			hsl(199.09, 92.65%, 68.41%) 8.1%,
+			hsl(199.14, 92.69%, 69.41%) 15.5%,
+			hsl(199.16, 92.77%, 70.89%) 22.5%,
+			hsl(199.12, 92.92%, 72.66%) 29%,
+			hsl(198.98, 93.16%, 74.6%) 35.3%,
+			hsl(198.72, 93.51%, 76.6%) 41.2%,
+			hsl(198.31, 93.99%, 78.58%) 47.1%,
+			hsl(197.74, 94.61%, 80.49%) 52.9%,
+			hsl(197.04, 95.37%, 82.26%) 58.8%,
+			hsl(196.21, 96.25%, 83.87%) 64.7%,
+			hsl(195.3, 97.23%, 85.26%) 71%,
+			hsl(194.39, 98.22%, 86.42%) 77.5%,
+			hsl(193.58, 99.11%, 87.29%) 84.5%,
+			hsl(193, 99.76%, 87.84%) 91.9%,
+			hsl(192.79, 100%, 88.04%) 100%);
+}
+
+.outter-space-stormy {
+	background: linear-gradient(to left top,
+			hsl(227.04, 81.7%, 30%) 0%,
+			hsl(227.02, 81.71%, 29.82%) 8.1%,
+			hsl(226.95, 81.73%, 29.32%) 15.5%,
+			hsl(226.84, 81.77%, 28.52%) 22.5%,
+			hsl(226.68, 81.84%, 27.46%) 29%,
+			hsl(226.46, 81.92%, 26.16%) 35.3%,
+			hsl(226.16, 82.04%, 24.64%) 41.2%,
+			hsl(225.75, 82.2%, 22.93%) 47.1%,
+			hsl(225.19, 82.44%, 21.03%) 52.9%,
+			hsl(224.42, 82.77%, 19%) 58.8%,
+			hsl(223.33, 83.28%, 16.84%) 64.7%,
+			hsl(221.76, 84.08%, 14.62%) 71%,
+			hsl(219.49, 85.42%, 12.41%) 77.5%,
+			hsl(216.37, 87.75%, 10.36%) 84.5%,
+			hsl(212.78, 91.63%, 8.74%) 91.9%,
+			hsl(210.77, 95.12%, 8.04%) 100%);
+}
+
+.outter-space-cloudy {
+	background: linear-gradient(to bottom,
+			hsl(200, 41.18%, 90%) 0%,
+			hsl(200.18, 40.78%, 89.73%) 10.6%,
+			hsl(200.65, 39.75%, 88.94%) 20%,
+			hsl(201.33, 38.4%, 87.69%) 28.4%,
+			hsl(202.1, 37.04%, 85.99%) 35.8%,
+			hsl(202.87, 35.83%, 83.89%) 42.6%,
+			hsl(203.58, 34.87%, 81.4%) 48.7%,
+			hsl(204.18, 34.19%, 78.54%) 54.4%,
+			hsl(204.65, 33.81%, 75.33%) 59.8%,
+			hsl(204.98, 33.7%, 71.78%) 64.9%,
+			hsl(205.14, 33.88%, 67.89%) 70.1%,
+			hsl(205.1, 34.37%, 63.65%) 75.3%,
+			hsl(204.84, 35.19%, 59.05%) 80.8%,
+			hsl(204.26, 36.43%, 53.98%) 86.6%,
+			hsl(203.2, 41.1%, 48.24%) 93%,
+			hsl(201.12, 59.81%, 40.98%) 100%);
 }
 
 #card {
@@ -51,6 +146,7 @@ body {
 	margin: 20px;
 	border-radius: 5px;
 	position: relative;
+	filter: blur(2px);
 
 	.details {
 		position: absolute;
@@ -93,6 +189,7 @@ body {
 	.storm-text {
 		color: #FFF;
 	}
+
 	.sun-text {
 		color: #FFF;
 	}
@@ -102,14 +199,89 @@ body {
 	animation: horizontal-shaking 3s infinite;
 }
 
+.input-area-size{
+	width: 300px;
+}
+
+.btn-search-style {
+	background-color: #FFF;
+	margin-top: 1px;
+	height: 36px;
+}
+
+
+input:active {
+    outline: none !important;
+    box-shadow: none !important;
+	border: 1px solid rgba(0, 0, 0, 0) !important;
+}
+
+input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+	border: 1px solid rgba(0, 0, 0, 0) !important;
+}
+
+button:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.city-search {
+	position: absolute;
+	top: 29%;
+	left: 42.2%;
+	z-index: 7;
+	min-width: 300px;
+	max-width: 300px;
+	min-height: 40px;
+	background-color: #FFF;
+}
+
+.city-list:hover {
+	background-color: #F7F8F8;
+	cursor: pointer;
+}
+
 @keyframes horizontal-shaking {
-	0% { transform: translateY(0) }
-	2% { transform: translateY(10px) }
-	4% { transform: translateY(-10px) }
-	6% { transform: translateY(10px) }
-	8% { transform: translateY(-7px) }
-	10% { transform: translateY(7px) }
-	12% { transform: translateY(-3px) }
-	14% { transform: translateY(3px) }
-	16% { transform: translateY(0) }
-   }
+	0% {
+		transform: translateY(0)
+	}
+
+	2% {
+		transform: translateY(10px)
+	}
+
+	4% {
+		transform: translateY(-10px)
+	}
+
+	6% {
+		transform: translateY(10px)
+	}
+
+	8% {
+		transform: translateY(-7px)
+	}
+
+	10% {
+		transform: translateY(7px)
+	}
+
+	12% {
+		transform: translateY(-3px)
+	}
+
+	14% {
+		transform: translateY(3px)
+	}
+
+	16% {
+		transform: translateY(0)
+	}
+}

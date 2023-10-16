@@ -43,7 +43,6 @@
 }
 
 .inner-clouds {
-	display: none;
 	margin-top: -40px;
 	transform: rotateX(180deg) scale(1.5);
 	z-index: 2 !important;
@@ -81,7 +80,6 @@
 }
 
 .outter-clouds {
-	display: none;
 	margin-top: 5px;
 	transform: rotateX(180deg) scale(1.5);
 	z-index: 1 !important;
@@ -118,29 +116,38 @@
 	}
 }
 
-.dark-cloud {
+.rainny-dark-cloud {
 	background-color: #D5D5D5;
 }
 
-.light-cloud {
+.rainny-light-cloud {
 	background-color: #E6E6E6;
 }
 
-.storm-light-cloud {
-    background-color: #323D4C;
+.stormy-light-cloud {
+	background-color: #323D4C;
 }
 
-.storm-dark-cloud {
-    background-color: #02142b;
+.stormy-dark-cloud {
+	background-color: #02142b;
 }
 
-.snow-light-cloud {
-    background-color: #f8f8f8;
+.snowy-light-cloud {
+	background-color: #f8f8f8;
 }
 
-.snow-dark-cloud {
-    background-color: #ececec;
+.snowy-dark-cloud {
+	background-color: #ececec;
 }
+
+.cloudy-light-cloud {
+	background-color: #FFFFFF;
+}
+
+.cloudy-dark-cloud {
+	background-color: #ebebeb;
+}
+
 
 @keyframes slide {
 	from {
@@ -153,4 +160,3 @@
 		/* No final, a div termina fora da tela à esquerda */
 	}
 }
-
