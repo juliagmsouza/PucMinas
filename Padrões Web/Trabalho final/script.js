@@ -74,3 +74,10 @@ async function main() {
 }
 
 main();
+
+/*
+TODO: Descer barra de pesquisa e opções para alinhar com card
+TODO: Colocar borda na barra de pesquisa e nas opções
+TODO: Integrar com API's
+TODO: Implementar corretamente blur
+*/
