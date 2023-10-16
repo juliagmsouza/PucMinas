@@ -22,7 +22,8 @@ body {
 }
 
 .outter-space {
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
@@ -33,7 +34,24 @@ body {
 	overflow: auto;
 	position: relative;
 	background: #eee;
+	place-items: center;
+
+	.searchbar {
+		grid-row-start: 1;
+		grid-column-start: 1;
+	}
+
+	#card {
+		grid-row-start: 1;
+		grid-column-start: 1;
+	}
+
+	.city-search {
+		grid-row-start: 1;
+		grid-column-start: 1;
+	}
 }
+
 
 .outter-space-rainy {
 	background: linear-gradient(to left top,
@@ -143,10 +161,11 @@ body {
 	padding: 0;
 	height: 400px;
 	min-height: 300px;
-	margin: 20px;
+	margin: 0 20px 20px 20px;
 	border-radius: 5px;
 	position: relative;
 	filter: blur(2px);
+	z-index: 3;
 
 	.details {
 		position: absolute;
@@ -200,7 +219,8 @@ body {
 }
 
 .input-area-size{
-	width: 300px;
+	background-color: #FFF;
+
 }
 
 .btn-search-style {
@@ -209,6 +229,15 @@ body {
 	height: 36px;
 }
 
+.searchbar {
+	z-index: 7;
+	min-width: 300px;
+	max-width: 300px;
+	height: 570px;
+	min-height: 300px;
+	background-color: transparent;
+
+}
 
 input:active {
     outline: none !important;
@@ -233,16 +262,17 @@ button:focus {
 }
 
 .city-search {
-	position: absolute;
-	top: 29%;
-	left: 42.2%;
 	z-index: 7;
 	min-width: 300px;
 	max-width: 300px;
-	min-height: 40px;
-	background-color: #FFF;
+	height: 430px;
+	min-height: 300px;
+	background-color: transparent;
 }
 
+.city-search-results {
+	background-color: #FFF;
+}
 .city-list:hover {
 	background-color: #F7F8F8;
 	cursor: pointer;
