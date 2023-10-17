@@ -9,24 +9,24 @@ async function main() {
     let key = '';
 
     var getLocationKey = new XMLHttpRequest();
-    getLocationKey.open('GET', `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&unit=${unit}&lang=${lang}`,true);
+    getLocationKey.open('GET', `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&unit=${unit}&lang=${lang}`, true);
 
-    
-        getLocationKey.onload = function() { 
-            if(getLocationKey.status >= 200 && getLocationKey.status < 300) {
-                console.log('requisição de localização bem sucedida: ', JSON.parse(getLocationKey.responseText));
-            }
-            else {
-                console.log('Falha na requisição de localização:', getLocationKey.status);
-            }
-        };
-    
-        getLocationKey.onerror = function() { 
-            console.log('Erro de rede.');
-        };
+
+    getLocationKey.onload = function () {
+        if (getLocationKey.status >= 200 && getLocationKey.status < 300) {
+            console.log('requisição de localização bem sucedida: ', JSON.parse(getLocationKey.responseText));
+        }
+        else {
+            console.log('Falha na requisição de localização:', getLocationKey.status);
+        }
+    };
+
+    getLocationKey.onerror = function () {
+        console.log('Erro de rede.');
+    };
 
     // getLocationKey.send();
-    
+
     const apiResponse = {
         "coord": {
             "lon": -43.5119,
@@ -73,11 +73,45 @@ async function main() {
     }
 }
 
+class Model {
+    constructor() {
+        this.response = {};
+    }
+    
+    getCurrentLocation() {
+        let lat;
+        let long;
+        navigator.geolocation.getCurrentPosition(function (position) {
+            lat = position.coords.latitude;
+            long = position.coords.longitude;
+        })
+
+        console.log('lat: ', lat)
+        console.log('long: ', long)
+    }
+}
+
+class Controller {
+    constructor(model, view) {
+        this.model = model; // Recebe o modelo
+        // this.view = view; 
+        console.log(view)
+        }
+    // Método de inicialização
+    init() {
+        this.model.getCurrentLocation();
+        // this.view.render();
+    }
+}
+
 main();
 
+const model = new Model();
+const controller = new Controller(model);
+
+controller.init(); // Inicializa o controlador e a aplicação
+
 /*
-TODO: Descer barra de pesquisa e opções para alinhar com card
-TODO: Colocar borda na barra de pesquisa e nas opções
 TODO: Integrar com API's
 TODO: Implementar corretamente blur
 */
