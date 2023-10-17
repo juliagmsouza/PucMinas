@@ -76,39 +76,40 @@ async function main() {
 class Model {
     constructor() {
         this.response = {};
+        this.lat ='';
+        this.long = '';
     }
-    
+
     getCurrentLocation() {
-if ("geolocation" in navigator) {
-  // Geolocalização está disponível no navegador
-  navigator.geolocation.getCurrentPosition(function(position) {
-    var latitude = position.coords.latitude;
-    var longitude = position.coords.longitude;
-    
-    console.log("Latitude: " + latitude);
-    console.log("Longitude: " + longitude);
-  }, function(error) {
-    // Tratamento de erros
-    switch (error.code) {
-      case error.PERMISSION_DENIED:
-        console.log("Permissão para geolocalização foi negada.");
-        break;
-      case error.POSITION_UNAVAILABLE:
-        console.log("Informações de localização não estão disponíveis.");
-        break;
-      case error.TIMEOUT:
-        console.log("Tempo limite da solicitação de localização expirado.");
-        break;
-      case error.UNKNOWN_ERROR:
-        console.log("Ocorreu um erro desconhecido.");
-        break;
-    }
-  });
-} else {
-  console.log("Geolocalização não está disponível no navegador.");
-}
-        console.log('lat: ', lat)
-        console.log('long: ', long)
+        if ("geolocation" in navigator) {
+            const self = this;
+            // Geolocalização está disponível no navegador
+            navigator.geolocation.getCurrentPosition(function (position) {
+                self.lat = position.coords.latitude;
+                self.long = position.coords.longitude;
+
+                console.log("Latitude: " + self.lat);
+                console.log("Longitude: " + self.long);
+            }, function (error) {
+                // Tratamento de erros
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                        console.log("Permissão para geolocalização foi negada.");
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        console.log("Informações de localização não estão disponíveis.");
+                        break;
+                    case error.TIMEOUT:
+                        console.log("Tempo limite da solicitação de localização expirado.");
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        console.log("Ocorreu um erro desconhecido.");
+                        break;
+                }
+            });
+        } else {
+            console.log("Geolocalização não está disponível no navegador.");
+        }
     }
 }
 
@@ -116,8 +117,8 @@ class Controller {
     constructor(model, view) {
         this.model = model; // Recebe o modelo
         // this.view = view; 
-        console.log(view)
-        }
+        // console.log(view)
+    }
     // Método de inicialização
     init() {
         this.model.getCurrentLocation();
