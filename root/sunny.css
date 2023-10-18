@@ -18,8 +18,11 @@
       hsl(192.79, 100%, 88.04%) 100%);
 }
 
-.sun {
+#sun {
   display: none;
+}
+
+.sun {
   position: absolute;
   border-radius: 50%;
   background-color: #FADA28;
@@ -30,7 +33,6 @@
 }
 
 .sun-ray {
-  display: none;
   position: absolute;
   border-radius: 50%;
   background-color: #FADA28;
