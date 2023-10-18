@@ -41,7 +41,6 @@ body {
 }
 
 #card {
-	animation: horizontal-shaking 3s infinite;
 	animation-delay: 8s;
 	box-shadow: 9px 7px 40px -6px rgba(0, 0, 0, 0.25);
 	overflow: hidden;
@@ -96,6 +95,9 @@ body {
 	}
 }
 
+.shake-animation {
+	animation: horizontal-shaking 3s infinite;
+}
 
 @keyframes horizontal-shaking {
 	0% { transform: translateY(0) }
