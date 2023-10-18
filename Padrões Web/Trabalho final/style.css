@@ -41,7 +41,8 @@ body {
 }
 
 #card {
-	animation: lightning 0.3s linear infinite;
+	animation: horizontal-shaking 3s infinite;
+	animation-delay: 8s;
 	box-shadow: 9px 7px 40px -6px rgba(0, 0, 0, 0.25);
 	overflow: hidden;
 	width: 300px;
@@ -103,26 +104,14 @@ body {
 }
 
 
-@keyframes lightning {
-    0% {
-        opacity: 0;
-    }
-    11% {
-        opacity: 1;
-    }
-    14% {
-        opacity: 0;
-    }
-    20% {
-        opacity: 0;
-    }
-    21% {
-        opacity: 1;
-    }
-	24% {
-		opacity: 0;
-	}
-	104% {
-		opacity: 0;
-	}
-}
+@keyframes horizontal-shaking {
+	0% { transform: translateY(0) }
+	2% { transform: translateY(10px) }
+	4% { transform: translateY(-10px) }
+	6% { transform: translateY(10px) }
+	8% { transform: translateY(-7px) }
+	10% { transform: translateY(7px) }
+	12% { transform: translateY(-3px) }
+	14% { transform: translateY(3px) }
+	16% { transform: translateY(0) }
+   }
