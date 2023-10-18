@@ -7,7 +7,7 @@ class Model {
         this.searchResponse = [];
         this.lat = '';
         this.long = '';
-    }
+    };
 
     async getCurrentLocation() {
         return new Promise((resolve, reject) => {
@@ -18,7 +18,7 @@ class Model {
                     self.lat = position.coords.latitude;
                     self.long = position.coords.longitude;
 
-                    await self.getCurrentWeather(self.lat, self.long)
+                    await self.getCurrentWeather(self.lat, self.long);
                     resolve();
                 }, function (error) {
                     // Tratamento de erros
@@ -36,13 +36,13 @@ class Model {
                             console.log("Ocorreu um erro desconhecido.");
                             break;
                     }
-                    reject("Ocorreu um erro desconhecido.")
+                    reject("Ocorreu um erro desconhecido.");
                 });
             } else {
-                reject("Geolocalização não está disponível no navegador.")
+                reject("Geolocalização não está disponível no navegador.");
             }
-        })
-    }
+        });
+    };
 
     async getCurrentWeather(lat, long) {
 
@@ -65,7 +65,7 @@ class Model {
             };
 
             getLocationKey.onerror = function () {
-                reject('Erro de rede.')
+                reject('Erro de rede.');
             };
             this.response =
             {
@@ -112,9 +112,9 @@ class Model {
                 "name": "Ouro Preto",
                 "cod": 200
             }
-            resolve();
-            // getLocationKey.send();
-        })
+            // resolve();
+            getLocationKey.send();
+        });
     };
 
     async getLocationBySearch(search) {
@@ -137,7 +137,7 @@ class Model {
             };
 
             getLocationBySearchKey.onerror = function () {
-                reject('Erro de rede.')
+                reject('Erro de rede.');
             };
             this.searchResponse = [
                 {
@@ -176,10 +176,10 @@ class Model {
                     "state": "Kentucky"
                 }
             ]
-            resolve();
-            // getLocationBySearchKey.send();
-        })
-    }
+            // resolve();
+            getLocationBySearchKey.send();
+        });
+    };
 }
 
 class View {
@@ -198,24 +198,25 @@ class View {
         this.thunderbolt = document.getElementById('thunderbolt');
         this.searchButton = document.getElementById('search-button');
         this.inputSearch = document.getElementById('input-search');
+        this.citySearch = document.getElementById('city-search');
+        this.citySearchResults = document.getElementById('city-search-results');
         this.controller = null;
-    }
+    };
 
     formatDate() {
         const diasDaSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
         const meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
-
         const hoje = new Date();
         const diaDaSemana = diasDaSemana[hoje.getDay()];
         const diaDoMes = hoje.getDate();
         const mes = meses[hoje.getMonth()];
 
-        return `${diaDaSemana}, ${diaDoMes} de ${mes}`
+        return `${diaDaSemana}, ${diaDoMes} de ${mes}`;
     };
 
     capitalizarPrimeiraLetra(palavra) {
         return palavra.charAt(0).toUpperCase() + palavra.slice(1);
-    }
+    };
 
     setController(controller) {
         this.controller = controller;
@@ -223,19 +224,19 @@ class View {
 
     weatherIdsMapper(id) {
         if (id >= 200 && id <= 232) {
-            return 'stormy'
+            return 'stormy';
         }
         if (id >= 300 && id <= 531) {
-            return 'rainy'
+            return 'rainy';
         }
         if (id >= 600 && id <= 622) {
-            return 'snowy'
+            return 'snowy';
         }
         if (id === 800) {
-            return 'sunny'
+            return 'sunny';
         }
         if (id >= 701 && id <= 804) {
-            return 'cloudy'
+            return 'cloudy';
         }
     };
 
@@ -253,125 +254,154 @@ class View {
         this.innerClouds.forEach(a => {
             cloudClasses.forEach(b => {
                 a.classList.remove(b);
-            })
-        })
+            });
+        });
         this.outterClouds.forEach(a => {
             cloudClasses.forEach(b => {
                 a.classList.remove(b);
-            })
-        })
+            });
+        });
     };
 
     disableEffects() {
         this.sun.style.display = 'none';
-        const sunRays = this.sun.querySelectorAll('.sun-ray')
+        const sunRays = this.sun.querySelectorAll('.sun-ray');
         sunRays.forEach(a => {
-            a.style.display = 'none'
-        })
+            a.style.display = 'none';
+        });
     };
 
     setWeather(weather) {
-        this.outterSpace.removeAttribute('class')
-        this.outterSpace.classList.add('outter-space', `outter-space-${weather}`)
-        this.card.removeAttribute('class')
-        this.card.classList.add(`${weather}-weather`)
-        this.removeCloudsClass()
-        this.details.removeAttribute('class')
-        this.details.classList.add('details')
-        this.fallingItems.style.display = 'none'
-        this.thunderbolt.removeAttribute('class')
-        this.thunderbolt.style.display = 'none'
+        this.outterSpace.removeAttribute('class');
+        this.outterSpace.classList.add('outter-space', `outter-space-${weather}`);
+        this.card.removeAttribute('class');
+        this.card.classList.add(`${weather}-weather`);
+        this.removeCloudsClass();
+        this.details.removeAttribute('class');
+        this.details.classList.add('details');
+        this.fallingItems.style.display = 'none';
+        this.thunderbolt.removeAttribute('class');
+        this.thunderbolt.style.display = 'none';
 
-        if(weather !== 'sunny') {
+        if (weather !== 'sunny') {
+            console.log('antes de sunny')
             this.innerClouds.forEach(a => {
-                a.classList.add(`${weather}-light-cloud`)
+                a.style.display = 'block';
+                a.classList.add(`${weather}-light-cloud`);
             })
             this.outterClouds.forEach(a => {
-                a.classList.add(`${weather}-dark-cloud`)
+                a.style.display = 'block';
+                a.classList.add(`${weather}-dark-cloud`);
             })
         } else {
             this.innerClouds.forEach(a => {
-                a.style.display = 'none'
+                a.style.display = 'none';
             })
             this.outterClouds.forEach(a => {
-                a.style.display = 'none'
+                a.style.display = 'none';
             })
         }
-        this.disableEffects()
+        this.disableEffects();
 
         if (weather === 'cloudy') {
-            this.sun.style.display = 'block'
-            const child = this.sun.querySelector('.sun')
-            child.classList.add('sun-cloudy')
+            this.sun.style.display = 'block';
+            const child = this.sun.querySelector('.sun');
+            child.classList.add('sun-cloudy');
         }
         if (weather === 'sunny') {
-            this.details.classList.add('sunny-text')
-            this.sun.style.display = 'block'
-            const child = this.sun.querySelector('.sun')
-            child.classList.remove('sun-cloudy')
-            const sunRays = this.sun.querySelectorAll('.sun-ray')
+            this.details.classList.add('sunny-text');
+            this.sun.style.display = 'block';
+            const child = this.sun.querySelector('.sun');
+            child.classList.remove('sun-cloudy');
+            const sunRays = this.sun.querySelectorAll('.sun-ray');
             sunRays.forEach(a => {
-                a.style.display = 'block'
+                a.style.display = 'block';
             })
         }
         if (weather === 'snowy') {
-            this.fallingItems.style.display = 'block'
-            this.fallingItems.removeAttribute('class')
-            this.fallingItems.classList.add('snow')
+            this.fallingItems.style.display = 'block';
+            this.fallingItems.removeAttribute('class');
+            this.fallingItems.classList.add('snow');
         }
         if (weather === 'rainy') {
-            this.fallingItems.style.display = 'block'
-            this.fallingItems.removeAttribute('class')
-            this.fallingItems.classList.add('rain')
+            this.fallingItems.style.display = 'block';
+            this.fallingItems.removeAttribute('class');
+            this.fallingItems.classList.add('rain');
         }
         if (weather === 'stormy') {
-            this.details.classList.add('stormy-text')
-            this.fallingItems.style.display = 'block'
-            this.fallingItems.removeAttribute('class')
-            this.fallingItems.classList.add('storm')
-            this.thunderbolt.style.display = 'block'
-            this.thunderbolt.classList.add('thunderbolt')
-            this.card.classList.add('shake-animation')
+            this.details.classList.add('stormy-text');
+            this.fallingItems.style.display = 'block';
+            this.fallingItems.removeAttribute('class');
+            this.fallingItems.classList.add('storm');
+            this.thunderbolt.style.display = 'block';
+            this.thunderbolt.classList.add('thunderbolt');
+            this.card.classList.add('shake-animation');
         }
     };
 
+    renderSearchResults() {
+        this.citySearch.style.display = 'block';
+        let searchResults = '';
+        this.citySearchResults.innerHTML = '';
+        this.controller.model.searchResponse.forEach((a, index) => {
+            searchResults += ` <div id="result-${index}" class="row w-120 pl-3 pt-2 city-list"><span class="mb-2">📍<strong class="ml-1">
+            ${a.name}</strong> <span class="ml-1">- ${a.state}, ${a.country}</span></span></div>`
+        });
+        this.citySearchResults.innerHTML = searchResults;
+        const self = this;
+        for(let i = 0; i < this.controller.model.searchResponse.length; i++) {
+            const element = document.getElementById(`result-${i}`);
+            element.addEventListener('click', () => {
+                self.controller.showWeatherConditionBySearch(i);
+                this.citySearch.style.display = 'none';
+            });
+        };
+    };
+
     render() {
-        const currentWeather = this.weatherIdsMapper(this.controller.model.response.weather[0].id)
-        console.log('aqui', this.controller.model.response)
-        this.temp.innerHTML = `${this.controller.model.response.main.temp.toString().split('.')[0]}<span class="celsius">c</span>`
-        this.date.textContent = this.formatDate()
-        this.mainCondition.innerHTML = `<strong>${this.capitalizarPrimeiraLetra(this.controller.model.response.weather[0].description)}</strong>`
-        this.location.textContent = `${this.controller.model.response.name}, ${this.controller.model.response.sys.country}`
+        const currentWeather = this.weatherIdsMapper(this.controller.model.response.weather[0].id);
+        this.temp.innerHTML = `${this.controller.model.response.main.temp.toString().split('.')[0]}<span class="celsius">c</span>`;
+        this.date.textContent = this.formatDate();
+        this.mainCondition.innerHTML = `<strong>${this.capitalizarPrimeiraLetra(this.controller.model.response.weather[0].description)}</strong>`;
+        this.location.textContent = `${this.controller.model.response.name}, ${this.controller.model.response.sys.country}`;
         const self = this;
         this.searchButton.addEventListener('click', () => {
-            self.controller.search(self.inputSearch.value)
-        })
-        this.setWeather(currentWeather)
-    }
+            self.controller.search(self.inputSearch.value);
+        });
+        this.setWeather(currentWeather);
+    };
 }
 
 class Controller {
     constructor(model, view) {
-        this.model = model; // Recebe o modelo
+        this.model = model;
         this.view = view;
     };
+
     async search(param) {
         await this.model.getLocationBySearch(param);
+        this.view.renderSearchResults();
     };
-    // Método de inicialização
+
+    async showWeatherConditionBySearch(index) {
+        const chosenLocation = this.model.searchResponse[index];
+        await this.model.getCurrentWeather(chosenLocation.latitude, chosenLocation.longitude);
+        this.view.render();
+    };
+
     async init() {
         await this.model.getCurrentLocation();
         this.view.render();
-    }
+    };
 }
 
 
 const model = new Model();
 const view = new View();
 const controller = new Controller(model, view);
-view.setController(controller)
+view.setController(controller);
 
-controller.init(); // Inicializa o controlador e a aplicação
+controller.init();
 
 /*
 TODO: integrar barra de pesquisa e botão de search
