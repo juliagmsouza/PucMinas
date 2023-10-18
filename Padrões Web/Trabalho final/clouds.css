@@ -132,6 +132,14 @@
     background-color: #02142b;
 }
 
+.snow-light-cloud {
+    background-color: #f8f8f8;
+}
+
+.snow-dark-cloud {
+    background-color: #ececec;
+}
+
 @keyframes slide {
 	from {
 		transform: translateX(0px);

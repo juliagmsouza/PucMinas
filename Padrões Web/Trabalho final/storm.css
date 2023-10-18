@@ -1,4 +1,5 @@
 .thunderbolt {
+    display: none;
     opacity: 0;
     animation: lightning 3s infinite;
     animation-delay: 8s;
@@ -6,6 +7,7 @@
 }
 
 .thunderbolt .shape {
+    display: none;
     position: absolute;
     top: 150px;
     left: 135px;
