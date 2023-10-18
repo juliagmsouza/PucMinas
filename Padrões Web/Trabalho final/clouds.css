@@ -43,6 +43,7 @@
 }
 
 .inner-clouds {
+	display: none;
 	margin-top: -40px;
 	transform: rotateX(180deg) scale(1.5);
 	z-index: 2 !important;
@@ -80,6 +81,7 @@
 }
 
 .outter-clouds {
+	display: none;
 	margin-top: 5px;
 	transform: rotateX(180deg) scale(1.5);
 	z-index: 1 !important;
