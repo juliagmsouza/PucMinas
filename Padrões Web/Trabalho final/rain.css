@@ -1,19 +1,104 @@
 .rain-weather {
-	background: linear-gradient(to bottom,
-			hsl(120, 0.79%, 75.1%) 0%,
-			hsl(120, 0.77%, 74.67%) 8.1%,
-			hsl(120, 0.72%, 73.44%) 15.5%,
-			hsl(120, 0.65%, 71.51%) 22.5%,
-			hsl(120, 0.57%, 68.93%) 29%,
-			hsl(120, 0.48%, 65.78%) 35.3%,
-			hsl(120, 0.41%, 62.11%) 41.2%,
-			hsl(120, 0.33%, 57.97%) 47.1%,
-			hsl(120, 0.27%, 53.43%) 52.9%,
-			hsl(120, 0.22%, 48.56%) 58.8%,
-			hsl(120, 0.2%, 43.46%) 64.7%,
-			hsl(120, 0.18%, 38.27%) 71%,
-			hsl(120, 0.14%, 33.21%) 77.5%,
-			hsl(120, 0.09%, 28.67%) 84.5%,
-			hsl(120, 0.03%, 25.31%) 91.9%,
-			hsl(0, 0%, 24%) 100%);
+    background: linear-gradient(to bottom,
+            hsl(120, 0.79%, 75.1%) 0%,
+            hsl(120, 0.77%, 74.67%) 8.1%,
+            hsl(120, 0.72%, 73.44%) 15.5%,
+            hsl(120, 0.65%, 71.51%) 22.5%,
+            hsl(120, 0.57%, 68.93%) 29%,
+            hsl(120, 0.48%, 65.78%) 35.3%,
+            hsl(120, 0.41%, 62.11%) 41.2%,
+            hsl(120, 0.33%, 57.97%) 47.1%,
+            hsl(120, 0.27%, 53.43%) 52.9%,
+            hsl(120, 0.22%, 48.56%) 58.8%,
+            hsl(120, 0.2%, 43.46%) 64.7%,
+            hsl(120, 0.18%, 38.27%) 71%,
+            hsl(120, 0.14%, 33.21%) 77.5%,
+            hsl(120, 0.09%, 28.67%) 84.5%,
+            hsl(120, 0.03%, 25.31%) 91.9%,
+            hsl(0, 0%, 24%) 100%);
+}
+
+.rain {
+    max-height: 0;
+    display: block;
+    text-align: center;
+    margin: auto;
+    height: 320px;
+    width: 300px;
+    overflow: hidden;
+    position: relative;
+    top: 30%;
+    left: 0%;
+    animation: rain-visibility 1s ease 8s forwards;
+}
+
+.drop {
+    display: inline-block;
+    background: #FFF;
+    height: 25px;
+    width: 4px;
+    margin: 5px;
+    border-radius: 25px;
+    opacity: 0.85;
+    animation-name: drop-fall;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-delay: 8s;
+
+    &.fast {
+        opacity: 0.75;
+        animation-duration: 0.6s;
+    }
+
+    &.ultrafast {
+        opacity: 0.3;
+        animation-duration: 0.9s;
+        animation-name: drop-fall2;
+    }
+
+    &.faster {
+        opacity: 0.5;
+        animation-duration: 1.2s;
+    }
+
+    &.slow {
+        animation-duration: 1.6s;
+        animation-name: drop-fall2;
+    }
+
+    &.slower {
+        animation-duration: 2.1s;
+    }
+}
+
+@keyframes rain-visibility {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 500px;
+    }
+}
+
+@keyframes drop-fall {
+    0% {
+        transform: translate(0, -25px);
+    }
+
+    100% {
+        transform: translate(0, 300px);
+        opacity: 0;
+    }
+}
+
+@keyframes drop-fall2 {
+    0% {
+        transform: translate(0, -25px);
+    }
+
+    100% {
+        transform: translate(0, 220px);
+        opacity: 0;
+    }
 }
