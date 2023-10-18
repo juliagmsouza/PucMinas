@@ -164,7 +164,7 @@ body {
 	margin: 0 20px 20px 20px;
 	border-radius: 5px;
 	position: relative;
-	filter: blur(2px);
+	/* filter: blur(2px); */
 	z-index: 3;
 
 	.details {
@@ -220,7 +220,7 @@ body {
 
 .input-area-size{
 	background-color: #FFF;
-
+	border: 2px solid hsl(120, 0.33%, 57.97%) !important;
 }
 
 .btn-search-style {
@@ -236,7 +236,10 @@ body {
 	height: 570px;
 	min-height: 300px;
 	background-color: transparent;
+}
 
+.border-style {
+	border: none
 }
 
 input:active {
@@ -271,7 +274,9 @@ button:focus {
 }
 
 .city-search-results {
+	display: none;
 	background-color: #FFF;
+	border: 2px solid hsl(120, 0.33%, 57.97%) !important;
 }
 .city-list:hover {
 	background-color: #F7F8F8;
