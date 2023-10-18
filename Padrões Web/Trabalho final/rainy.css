@@ -1,4 +1,4 @@
-.rain-weather {
+.rainy-weather {
     background: linear-gradient(to bottom,
             hsl(120, 0.79%, 75.1%) 0%,
             hsl(120, 0.77%, 74.67%) 8.1%,
@@ -43,18 +43,18 @@
         animation-duration: 1.5s;
         animation-iteration-count: infinite;
         animation-delay: 8s;
-    
+
         &.fast {
             opacity: 0.75;
             animation-duration: 1.2s;
         }
-    
+
         &.ultrafast {
             opacity: 0.3;
             animation-duration: 0.7s;
             animation-name: drop-fall2;
         }
-    
+
         &.faster {
             opacity: 0.5;
             animation-duration: 1s;
@@ -64,7 +64,7 @@
             animation-duration: 1.8s;
             animation-name: drop-fall2;
         }
-    
+
         &.slower {
             animation-duration: 2.1s;
         }

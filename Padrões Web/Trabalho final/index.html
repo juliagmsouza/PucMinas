@@ -5,21 +5,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-sacle=1.0" />
     <title>App Previsão do Tempo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
     <link rel="icon" href="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/cloud-sun-rain.svg"
         type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="clouds.css" />
-    <link rel="stylesheet" href="storm.css" />
-    <link rel="stylesheet" href="rain.css" />
-    <link rel="stylesheet" href="snow.css" />
-    <link rel="stylesheet" href="sun.css" />
+    <link rel="stylesheet" href="stormy.css" />
+    <link rel="stylesheet" href="rainy.css" />
+    <link rel="stylesheet" href="snowy.css" />
+    <link rel="stylesheet" href="sunny.css" />
+    <link rel="stylesheet" href="cloudy.css" />
 </head>
 
 <body>
     <div class="background">
-        <div class="container">
-            <div id="card" class="sun-weather">
-                <div class="details sun-text">
+        <div class="outter-space outter-space-snowy">
+            <div class="input-group input-area-size mb-1">
+                <input type="text" class="form-control" placeholder="Pesquise pela localidade"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-search-style" type="button">🔍</button>
+                </div>
+            </div>
+            <div class="city-search border rounded">
+                <div class="col">
+                    <div class="row  w-120 pl-3 pt-2 city-list"><span class="mb-2">📍<strong class="ml-1"> London</strong> <span class="ml-1">- London, GB</span></span></div>
+                </div>
+            </div>
+            <div id="card" class="snowy-weather">
+                <div class="details">
                     <div class="temp">20<span class="celsius">c</span></div>
                     <div class="right">
                         <div id="date">Monday 22 August</div>
@@ -29,43 +44,43 @@
 
                 <div class="outter-clouds">
                     <div class="cloud1">
-                        <div class="cl1 snow-light-cloud">
+                        <div class="cl1 snowy-light-cloud">
                         </div>
-                        <div class="cl2 snow-light-cloud">
+                        <div class="cl2 snowy-light-cloud">
                         </div>
-                        <div class="cl3 snow-light-cloud">
+                        <div class="cl3 snowy-light-cloud">
                         </div>
-                        <div class="cl4 snow-light-cloud">
-                        </div>
-                    </div>
-                    <div class="cloud1">
-                        <div class="cl1 snow-light-cloud ">
-                        </div>
-                        <div class="cl2 snow-light-cloud ">
-                        </div>
-                        <div class="cl3 snow-light-cloud ">
-                        </div>
-                        <div class="cl4 snow-light-cloud ">
+                        <div class="cl4 snowy-light-cloud">
                         </div>
                     </div>
                     <div class="cloud1">
-                        <div class="cl1 snow-light-cloud">
+                        <div class="cl1 snowy-light-cloud ">
                         </div>
-                        <div class="cl2 snow-light-cloud">
+                        <div class="cl2 snowy-light-cloud ">
                         </div>
-                        <div class="cl3 snow-light-cloud">
+                        <div class="cl3 snowy-light-cloud ">
                         </div>
-                        <div class="cl4 snow-light-cloud">
+                        <div class="cl4 snowy-light-cloud ">
                         </div>
                     </div>
                     <div class="cloud1">
-                        <div class="cl1 snow-light-cloud ">
+                        <div class="cl1 snowy-light-cloud">
                         </div>
-                        <div class="cl2 snow-light-cloud ">
+                        <div class="cl2 snowy-light-cloud">
                         </div>
-                        <div class="cl3 snow-light-cloud ">
+                        <div class="cl3 snowy-light-cloud">
                         </div>
-                        <div class="cl4 snow-light-cloud ">
+                        <div class="cl4 snowy-light-cloud">
+                        </div>
+                    </div>
+                    <div class="cloud1">
+                        <div class="cl1 snowy-light-cloud ">
+                        </div>
+                        <div class="cl2 snowy-light-cloud ">
+                        </div>
+                        <div class="cl3 snowy-light-cloud ">
+                        </div>
+                        <div class="cl4 snowy-light-cloud ">
                         </div>
                     </div>
                 </div>
@@ -81,43 +96,43 @@
                 </div>
                 <div class="inner-clouds">
                     <div class="cloud1">
-                        <div class="cl1 snow-dark-cloud">
+                        <div class="cl1 stormy-dark-cloud">
                         </div>
-                        <div class="cl2 snow-dark-cloud">
+                        <div class="cl2 stormy-dark-cloud">
                         </div>
-                        <div class="cl3 snow-dark-cloud">
+                        <div class="cl3 stormy-dark-cloud">
                         </div>
-                        <div class="cl4 snow-dark-cloud">
-                        </div>
-                    </div>
-                    <div class="cloud1">
-                        <div class="cl1 snow-dark-cloud ">
-                        </div>
-                        <div class="cl2 snow-dark-cloud ">
-                        </div>
-                        <div class="cl3 snow-dark-cloud ">
-                        </div>
-                        <div class="cl4 snow-dark-cloud ">
+                        <div class="cl4 stormy-dark-cloud">
                         </div>
                     </div>
                     <div class="cloud1">
-                        <div class="cl1 snow-dark-cloud">
+                        <div class="cl1 stormy-dark-cloud ">
                         </div>
-                        <div class="cl2 snow-dark-cloud">
+                        <div class="cl2 stormy-dark-cloud ">
                         </div>
-                        <div class="cl3 snow-dark-cloud">
+                        <div class="cl3 stormy-dark-cloud ">
                         </div>
-                        <div class="cl4 snow-dark-cloud">
+                        <div class="cl4 stormy-dark-cloud ">
                         </div>
                     </div>
                     <div class="cloud1">
-                        <div class="cl1 snow-dark-cloud ">
+                        <div class="cl1 stormy-dark-cloud">
                         </div>
-                        <div class="cl2 snow-dark-cloud ">
+                        <div class="cl2 stormy-dark-cloud">
                         </div>
-                        <div class="cl3 snow-dark-cloud ">
+                        <div class="cl3 stormy-dark-cloud">
                         </div>
-                        <div class="cl4 snow-dark-cloud ">
+                        <div class="cl4 stormy-dark-cloud">
+                        </div>
+                    </div>
+                    <div class="cloud1">
+                        <div class="cl1 stormy-dark-cloud ">
+                        </div>
+                        <div class="cl2 stormy-dark-cloud ">
+                        </div>
+                        <div class="cl3 stormy-dark-cloud ">
+                        </div>
+                        <div class="cl4 stormy-dark-cloud ">
                         </div>
                     </div>
                 </div>

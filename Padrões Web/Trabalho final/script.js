@@ -1,5 +1,5 @@
 const API_KEY = 'c2ec1a65900c0c1778e092fd95ec6a76';
-
+const API_GEOCODING_KEY = 'L4ed4GA8cwBlpmXkPtcyog==QNL1hNoNOWUdG2Im';
 async function main() {
 
     const lat = -20.398970;
