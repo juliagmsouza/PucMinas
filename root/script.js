@@ -247,7 +247,7 @@ class View {
         this.date.textContent = this.formatDate()
         this.mainCondition.innerHTML = `<strong>${this.capitalizarPrimeiraLetra(this.controller.model.response.weather[0].description)}</strong>`
         this.location.textContent = `${this.controller.model.response.name}, ${this.controller.model.response.sys.country}`
-        this.setWeather('sunny')
+        this.setWeather(currentWeather)
     }
 }
 
