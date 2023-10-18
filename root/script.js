@@ -79,13 +79,34 @@ class Model {
     }
     
     getCurrentLocation() {
-        let lat;
-        let long;
-        navigator.geolocation.getCurrentPosition(function (position) {
-            lat = position.coords.latitude;
-            long = position.coords.longitude;
-        })
-
+if ("geolocation" in navigator) {
+  // Geolocalização está disponível no navegador
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    
+    console.log("Latitude: " + latitude);
+    console.log("Longitude: " + longitude);
+  }, function(error) {
+    // Tratamento de erros
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        console.log("Permissão para geolocalização foi negada.");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        console.log("Informações de localização não estão disponíveis.");
+        break;
+      case error.TIMEOUT:
+        console.log("Tempo limite da solicitação de localização expirado.");
+        break;
+      case error.UNKNOWN_ERROR:
+        console.log("Ocorreu um erro desconhecido.");
+        break;
+    }
+  });
+} else {
+  console.log("Geolocalização não está disponível no navegador.");
+}
         console.log('lat: ', lat)
         console.log('long: ', long)
     }
@@ -114,5 +135,4 @@ controller.init(); // Inicializa o controlador e a aplicação
 /*
 TODO: Integrar com API's
 TODO: Implementar corretamente blur
-TODO: fazer funcionar
 */
