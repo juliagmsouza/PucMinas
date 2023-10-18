@@ -124,6 +124,14 @@
 	background-color: #E6E6E6;
 }
 
+.storm-light-cloud {
+    background-color: #323D4C;
+}
+
+.storm-dark-cloud {
+    background-color: #02142b;
+}
+
 @keyframes slide {
 	from {
 		transform: translateX(0px);
