@@ -114,4 +114,5 @@ controller.init(); // Inicializa o controlador e a aplicação
 /*
 TODO: Integrar com API's
 TODO: Implementar corretamente blur
+TODO: fazer funcionar
 */
