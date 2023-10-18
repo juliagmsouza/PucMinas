@@ -4,6 +4,7 @@ const API_GEOCODING_KEY = 'L4ed4GA8cwBlpmXkPtcyog==QNL1hNoNOWUdG2Im';
 class Model {
     constructor() {
         this.response = {};
+        this.searchResponse = [];
         this.lat = '';
         this.long = '';
     }
@@ -114,6 +115,70 @@ class Model {
             resolve();
             // getLocationKey.send();
         })
+    };
+
+    async getLocationBySearch(search) {
+
+        return new Promise((resolve, reject) => {
+
+            var getLocationBySearchKey = new XMLHttpRequest();
+            getLocationBySearchKey.open('GET', `https://api.api-ninjas.com/v1/geocoding?city=${search}`, true);
+            getLocationBySearchKey.setRequestHeader('X-Api-Key', API_GEOCODING_KEY);
+
+            const self = this;
+            getLocationBySearchKey.onload = function () {
+                if (getLocationBySearchKey.status >= 200 && getLocationBySearchKey.status < 300) {
+                    self.searchResponse = JSON.parse(getLocationBySearchKey.responseText);
+                    resolve();
+                }
+                else {
+                    reject('Falha na requisição de localização:', getLocationBySearchKey.status);
+                }
+            };
+
+            getLocationBySearchKey.onerror = function () {
+                reject('Erro de rede.')
+            };
+            this.searchResponse = [
+                {
+                    "name": "London",
+                    "latitude": 51.5073219,
+                    "longitude": -0.1276474,
+                    "country": "GB",
+                    "state": "England"
+                },
+                {
+                    "name": "City of London",
+                    "latitude": 51.5156177,
+                    "longitude": -0.0919983,
+                    "country": "GB",
+                    "state": "England"
+                },
+                {
+                    "name": "London",
+                    "latitude": 42.9832406,
+                    "longitude": -81.243372,
+                    "country": "CA",
+                    "state": "Ontario"
+                },
+                {
+                    "name": "Chelsea",
+                    "latitude": 51.4875167,
+                    "longitude": -0.1687007,
+                    "country": "GB",
+                    "state": "England"
+                },
+                {
+                    "name": "London",
+                    "latitude": 37.1289771,
+                    "longitude": -84.0832646,
+                    "country": "US",
+                    "state": "Kentucky"
+                }
+            ]
+            resolve();
+            // getLocationBySearchKey.send();
+        })
     }
 }
 
@@ -129,6 +194,10 @@ class View {
         this.outterClouds = document.querySelectorAll('.clouds2');
         this.sun = document.getElementById('sun');
         this.details = document.getElementById('details');
+        this.fallingItems = document.getElementById('falling-items');
+        this.thunderbolt = document.getElementById('thunderbolt');
+        this.searchButton = document.getElementById('search-button');
+        this.inputSearch = document.getElementById('input-search');
         this.controller = null;
     }
 
@@ -207,6 +276,12 @@ class View {
         this.card.removeAttribute('class')
         this.card.classList.add(`${weather}-weather`)
         this.removeCloudsClass()
+        this.details.removeAttribute('class')
+        this.details.classList.add('details')
+        this.fallingItems.style.display = 'none'
+        this.thunderbolt.removeAttribute('class')
+        this.thunderbolt.style.display = 'none'
+
         if(weather !== 'sunny') {
             this.innerClouds.forEach(a => {
                 a.classList.add(`${weather}-light-cloud`)
@@ -230,6 +305,7 @@ class View {
             child.classList.add('sun-cloudy')
         }
         if (weather === 'sunny') {
+            this.details.classList.add('sunny-text')
             this.sun.style.display = 'block'
             const child = this.sun.querySelector('.sun')
             child.classList.remove('sun-cloudy')
@@ -237,6 +313,25 @@ class View {
             sunRays.forEach(a => {
                 a.style.display = 'block'
             })
+        }
+        if (weather === 'snowy') {
+            this.fallingItems.style.display = 'block'
+            this.fallingItems.removeAttribute('class')
+            this.fallingItems.classList.add('snow')
+        }
+        if (weather === 'rainy') {
+            this.fallingItems.style.display = 'block'
+            this.fallingItems.removeAttribute('class')
+            this.fallingItems.classList.add('rain')
+        }
+        if (weather === 'stormy') {
+            this.details.classList.add('stormy-text')
+            this.fallingItems.style.display = 'block'
+            this.fallingItems.removeAttribute('class')
+            this.fallingItems.classList.add('storm')
+            this.thunderbolt.style.display = 'block'
+            this.thunderbolt.classList.add('thunderbolt')
+            this.card.classList.add('shake-animation')
         }
     };
 
@@ -247,6 +342,10 @@ class View {
         this.date.textContent = this.formatDate()
         this.mainCondition.innerHTML = `<strong>${this.capitalizarPrimeiraLetra(this.controller.model.response.weather[0].description)}</strong>`
         this.location.textContent = `${this.controller.model.response.name}, ${this.controller.model.response.sys.country}`
+        const self = this;
+        this.searchButton.addEventListener('click', () => {
+            self.controller.search(self.inputSearch.value)
+        })
         this.setWeather(currentWeather)
     }
 }
@@ -255,7 +354,10 @@ class Controller {
     constructor(model, view) {
         this.model = model; // Recebe o modelo
         this.view = view;
-    }
+    };
+    async search(param) {
+        await this.model.getLocationBySearch(param);
+    };
     // Método de inicialização
     async init() {
         await this.model.getCurrentLocation();
@@ -272,6 +374,8 @@ view.setController(controller)
 controller.init(); // Inicializa o controlador e a aplicação
 
 /*
-TODO: Integrar com API's
-TODO: Implementar corretamente blur
+TODO: integrar barra de pesquisa e botão de search
+TODO: Criar botões e integrar
+TODO: Criar loader para card
 */
+
