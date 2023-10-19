@@ -21,7 +21,6 @@
 .snow {
     max-height: 0;
     display: none;
-    /*block - voltar este display*/
     text-align: center;
     margin: auto;
     height: 320px;

@@ -13,7 +13,6 @@ class Model {
         return new Promise((resolve, reject) => {
             if ("geolocation" in navigator) {
                 const self = this;
-                // Geolocalização está disponível no navegador
                 navigator.geolocation.getCurrentPosition(async function (position) {
                     self.lat = position.coords.latitude;
                     self.long = position.coords.longitude;
@@ -21,7 +20,6 @@ class Model {
                     await self.getCurrentWeather(self.lat, self.long);
                     resolve();
                 }, function (error) {
-                    // Tratamento de erros
                     switch (error.code) {
                         case error.PERMISSION_DENIED:
                             console.log("Permissão para geolocalização foi negada.");
@@ -67,52 +65,6 @@ class Model {
             getLocationKey.onerror = function () {
                 reject('Erro de rede.');
             };
-            this.response =
-            {
-                "coord": {
-                    "lon": -43.512,
-                    "lat": -20.3891
-                },
-                "weather": [
-                    {
-                        "id": 804,
-                        "main": "Clouds",
-                        "description": "nublado",
-                        "icon": "04n"
-                    }
-                ],
-                "base": "stations",
-                "main": {
-                    "temp": 20.4,
-                    "feels_like": 20.53,
-                    "temp_min": 20.4,
-                    "temp_max": 20.4,
-                    "pressure": 1017,
-                    "humidity": 78,
-                    "sea_level": 1017,
-                    "grnd_level": 895
-                },
-                "visibility": 10000,
-                "wind": {
-                    "speed": 0.88,
-                    "deg": 112,
-                    "gust": 1.26
-                },
-                "clouds": {
-                    "all": 85
-                },
-                "dt": 1697586838,
-                "sys": {
-                    "country": "BR",
-                    "sunrise": 1697530915,
-                    "sunset": 1697576200
-                },
-                "timezone": -10800,
-                "id": 3455671,
-                "name": "Ouro Preto",
-                "cod": 200
-            }
-            // resolve();
             getLocationKey.send();
         });
     };
@@ -139,44 +91,6 @@ class Model {
             getLocationBySearchKey.onerror = function () {
                 reject('Erro de rede.');
             };
-            this.searchResponse = [
-                {
-                    "name": "London",
-                    "latitude": 51.5073219,
-                    "longitude": -0.1276474,
-                    "country": "GB",
-                    "state": "England"
-                },
-                {
-                    "name": "City of London",
-                    "latitude": 51.5156177,
-                    "longitude": -0.0919983,
-                    "country": "GB",
-                    "state": "England"
-                },
-                {
-                    "name": "London",
-                    "latitude": 42.9832406,
-                    "longitude": -81.243372,
-                    "country": "CA",
-                    "state": "Ontario"
-                },
-                {
-                    "name": "Chelsea",
-                    "latitude": 51.4875167,
-                    "longitude": -0.1687007,
-                    "country": "GB",
-                    "state": "England"
-                },
-                {
-                    "name": "London",
-                    "latitude": 37.1289771,
-                    "longitude": -84.0832646,
-                    "country": "US",
-                    "state": "Kentucky"
-                }
-            ]
-            // resolve();
             getLocationBySearchKey.send();
         });
     };
@@ -464,10 +378,4 @@ const controller = new Controller(model, view);
 view.setController(controller);
 
 controller.init();
-
-/*
-TODO: integrar barra de pesquisa e botão de search
-TODO: Criar botões e integrar
-TODO: Criar loader para card
-*/
 
