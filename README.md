@@ -1,7 +1,7 @@
 # Como utilizar a aplicação
 Para abrir a aplicação acesse: `https://juliagmsouza.github.io/PucMinas/root/index.html`.
 
-Em seguida clique em Permitir quando a permisão de localização for realizada.
+Em seguida clique em Permitir quando a permisão de localização for solicitada.
 
 # Pesquisando localidades
 Para pesquisar uma localidade basta digitar o nome da cidade que deseja na barra de pesquisa.
