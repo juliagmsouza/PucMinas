@@ -192,6 +192,8 @@ class View {
         this.card = document.getElementById('card');
         this.innerClouds = document.querySelectorAll('.clouds');
         this.outterClouds = document.querySelectorAll('.clouds2');
+        this.cloudsGroup1 = document.getElementById('clouds-group-1');
+        this.cloudsGroup2 = document.getElementById('clouds-group-2');
         this.sun = document.getElementById('sun');
         this.details = document.getElementById('details');
         this.fallingItems = document.getElementById('falling-items');
@@ -200,6 +202,15 @@ class View {
         this.inputSearch = document.getElementById('input-search');
         this.citySearch = document.getElementById('city-search');
         this.citySearchResults = document.getElementById('city-search-results');
+        this.weatherIcons = document.getElementById('weather-icons');
+        this.sunnyButton = document.getElementById('sunny-button');
+        this.cloudyButton = document.getElementById('cloudy-button');
+        this.rainyButton = document.getElementById('rainy-button');
+        this.stormyButton = document.getElementById('stormy-button');
+        this.snowyButton = document.getElementById('snowy-button');
+        this.icons = document.getElementById('icons');
+        this.searchbar = document.getElementById('searchbar');
+        this.loader = document.getElementById('loader');
         this.controller = null;
     };
 
@@ -271,20 +282,35 @@ class View {
         });
     };
 
+    resetCloudAnimations() {
+        const cloudElements = document.querySelectorAll('.cloud1');
+    
+        cloudElements.forEach((cloud) => {
+            cloud.classList.toggle('reset-animation');
+            cloud.offsetWidth;
+            cloud.classList.toggle('reset-animation');
+        });
+    }
+
     setWeather(weather) {
         this.outterSpace.removeAttribute('class');
         this.outterSpace.classList.add('outter-space', `outter-space-${weather}`);
         this.card.removeAttribute('class');
         this.card.classList.add(`${weather}-weather`);
         this.removeCloudsClass();
+        this.resetCloudAnimations();
         this.details.removeAttribute('class');
         this.details.classList.add('details');
         this.fallingItems.style.display = 'none';
         this.thunderbolt.removeAttribute('class');
         this.thunderbolt.style.display = 'none';
+        this.weatherIcons.removeAttribute('class');
+        this.weatherIcons.classList.add('weather-icons');
 
+        this.outterClouds.forEach(a => {
+            a.style.display = 'none';
+        })
         if (weather !== 'sunny') {
-            console.log('antes de sunny')
             this.innerClouds.forEach(a => {
                 a.style.display = 'block';
                 a.classList.add(`${weather}-light-cloud`);
@@ -309,6 +335,7 @@ class View {
             child.classList.add('sun-cloudy');
         }
         if (weather === 'sunny') {
+            this.weatherIcons.classList.add('white-text');
             this.details.classList.add('sunny-text');
             this.sun.style.display = 'block';
             const child = this.sun.querySelector('.sun');
@@ -329,6 +356,7 @@ class View {
             this.fallingItems.classList.add('rain');
         }
         if (weather === 'stormy') {
+            this.weatherIcons.classList.add('white-text');
             this.details.classList.add('stormy-text');
             this.fallingItems.style.display = 'block';
             this.fallingItems.removeAttribute('class');
@@ -340,10 +368,15 @@ class View {
     };
 
     renderSearchResults() {
+        this.card.classList.add('blur');
         this.citySearch.style.display = 'block';
         let searchResults = '';
         this.citySearchResults.innerHTML = '';
         this.controller.model.searchResponse.forEach((a, index) => {
+            const element = document.getElementById(`result-${index}`);
+            if(element){
+                element.remove();
+            }
             searchResults += ` <div id="result-${index}" class="row w-120 pl-3 pt-2 city-list"><span class="mb-2">📍<strong class="ml-1">
             ${a.name}</strong> <span class="ml-1">- ${a.state}, ${a.country}</span></span></div>`
         });
@@ -353,12 +386,37 @@ class View {
             const element = document.getElementById(`result-${i}`);
             element.addEventListener('click', () => {
                 self.controller.showWeatherConditionBySearch(i);
-                this.citySearch.style.display = 'none';
             });
         };
     };
 
+    setupButtons(weather) {
+        const buttonMapper = {
+            sunny: this.sunnyButton,
+            cloudy: this.cloudyButton,
+            rainy: this.rainyButton,
+            stormy: this.stormyButton,
+            snowy: this.snowyButton
+        };
+        const self = this;
+        buttonMapper[weather].addEventListener('click', () => {
+            self.setWeather(weather);
+        });
+    }
+
     render() {
+        this.card.classList.add('blur');
+        this.outterSpace.classList.remove('bg-white');
+        this.icons.style.display = 'inline-block';
+        this.card.style.display = 'block';
+        this.searchbar.style.display = 'block';
+        this.loader.style.display = 'none';
+        this.setupButtons('sunny');
+        this.setupButtons('cloudy');
+        this.setupButtons('rainy');
+        this.setupButtons('stormy');
+        this.setupButtons('snowy');
+        this.citySearch.style.display = 'none';
         const currentWeather = this.weatherIdsMapper(this.controller.model.response.weather[0].id);
         this.temp.innerHTML = `${this.controller.model.response.main.temp.toString().split('.')[0]}<span class="celsius">c</span>`;
         this.date.textContent = this.formatDate();

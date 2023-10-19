@@ -116,6 +116,10 @@
 	}
 }
 
+.reset-animation {
+    animation: none !important;
+}
+
 .rainy-dark-cloud {
 	background-color: #D5D5D5;
 }

@@ -46,7 +46,18 @@ body {
 		grid-column-start: 1;
 	}
 
+	.loader {
+		display: flex;
+		grid-row-start: 1;
+		grid-column-start: 1;
+	}
+
 	.city-search {
+		grid-row-start: 1;
+		grid-column-start: 1;
+	}
+
+	.weather-icons {
 		grid-row-start: 1;
 		grid-column-start: 1;
 	}
@@ -153,7 +164,18 @@ body {
 			hsl(201.12, 59.81%, 40.98%) 100%);
 }
 
+.loader {
+	overflow: hidden;
+	width: 100%;
+	padding: 0;
+	height: 500px;
+	min-height: 300px;
+	margin: 0 20px 20px 20px;
+	position: relative;
+}
+
 #card {
+	display: none;
 	animation-delay: 8s;
 	box-shadow: 9px 7px 40px -6px rgba(0, 0, 0, 0.25);
 	overflow: hidden;
@@ -230,10 +252,11 @@ body {
 }
 
 .searchbar {
+	display: none;
 	z-index: 7;
 	min-width: 300px;
 	max-width: 300px;
-	height: 570px;
+	height: 520px;
 	min-height: 300px;
 	background-color: transparent;
 }
@@ -272,15 +295,38 @@ button:focus {
 	min-height: 300px;
 	background-color: transparent;
 }
+.weather-icons {
+	z-index: 6;
+	min-width: 300px;
+	max-width: 300px;
+	height: 570px;
+	min-height: 300px;
+	background-color: transparent;
+	display: flex;
+}
+
+.icons {
+	display: none;
+	align-self: flex-end;
+}
 
 .city-search-results {
 	display: none;
 	background-color: #FFF;
 	border: 2px solid hsl(120, 0.33%, 57.97%) !important;
 }
+
 .city-list:hover {
 	background-color: #F7F8F8;
 	cursor: pointer;
+}
+
+.white-text {
+	color: #FFF;
+}
+
+.blur {
+	filter: blur(2px);
 }
 
 @keyframes horizontal-shaking {

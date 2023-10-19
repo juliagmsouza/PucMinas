@@ -20,9 +20,9 @@
 
 <body>
     <div class="background">
-        <div id="outter-space" class="outter-space">
-            <div class="searchbar">
-                <div class="input-group input-area-size mt-4 border rounded">
+        <div id="outter-space" class="outter-space bg-white">
+            <div id="searchbar" class="searchbar">
+                <div class="input-group input-area-size border rounded">
                     <input id="input-search" type="text" class="form-control border-style"
                         placeholder="Pesquise pela localidade" aria-label="Pesquise pela localidade"
                         aria-describedby="basic-addon2">
@@ -37,6 +37,9 @@
                     </div>
                 </div>
             </div>
+            <div id="loader" class="loader justify-content-center">
+                <img src="loader.png" alt="lock" height="400px">
+            </div>
             <div id="card">
                 <div id="details" class="details">
                     <div class="temp" id="temp"></div>
@@ -47,7 +50,7 @@
                     </div>
                 </div>
 
-                <div class="outter-clouds">
+                <div id="clouds-group-1" class="outter-clouds">
                     <div class="cloud1">
                         <div class="clouds cl1">
                         </div>
@@ -99,7 +102,7 @@
                     <div class="sun-ray r-three"></div>
                     <div class="sun-ray r-four"></div>
                 </div>
-                <div class="inner-clouds">
+                <div id="clouds-group-2" class="inner-clouds">
                     <div class="cloud1">
                         <div class="cl1 clouds2">
                         </div>
@@ -156,7 +159,35 @@
                     <div class="drop fast"></div>
                 </div>
             </div>
+            <div id="weather-icons" class="weather-icons">
+                <div id="icons" class="icons text-center">
+                    <span>Para visualizar outros estilos de clima utilize os botões abaixo.</span>
+                    <div class="row d-flex justify-content-center">
+                        <button id="sunny-button" class="btn btn-search-style bg-transparent" type="button">
+                            <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/solid/sun.svg"
+                                alt="lock" height="20px">
+                        </button>
+                        <button id="cloudy-button" class="btn btn-search-style bg-transparent" type="button">
+                            <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/cloud-sun.svg"
+                                alt="lock" height="20px">
+                        </button>
+                        <button id="rainy-button" class="btn btn-search-style bg-transparent" type="button">
+                            <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/cloud-showers-heavy.svg"
+                                alt="lock" height="20px">
+                        </button>
+                        <button id="stormy-button" class="btn btn-search-style bg-transparent" type="button">
+                            <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/cloud-bolt.svg"
+                                alt="lock" height="20px">
+                        </button>
+                        <button id="snowy-button" class="btn btn-search-style bg-transparent" type="button">
+                            <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/solid/snowflake.svg"
+                                alt="lock" height="20px">
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 </body>
 
 <!--Importa os arquivos JavaScript do Bootstrap-->
