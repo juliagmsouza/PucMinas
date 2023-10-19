@@ -282,7 +282,7 @@ class View {
         });
     };
 
-    resetCloudAnimations() {
+    resetAnimations() {
         const cloudElements = document.querySelectorAll('.cloud1');
     
         cloudElements.forEach((cloud) => {
@@ -290,6 +290,10 @@ class View {
             cloud.offsetWidth;
             cloud.classList.toggle('reset-animation');
         });
+
+        this.fallingItems.classList.toggle('reset-animation');
+        this.fallingItems.offsetWidth;
+        this.fallingItems.classList.toggle('reset-animation');
     }
 
     setWeather(weather) {
@@ -298,7 +302,7 @@ class View {
         this.card.removeAttribute('class');
         this.card.classList.add(`${weather}-weather`);
         this.removeCloudsClass();
-        this.resetCloudAnimations();
+        this.resetAnimations();
         this.details.removeAttribute('class');
         this.details.classList.add('details');
         this.fallingItems.style.display = 'none';
