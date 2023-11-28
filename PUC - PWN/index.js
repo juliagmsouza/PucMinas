@@ -1,7 +1,7 @@
 const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
-const port = 5000
+const port = process.env.Port || 5000
 
 const listaProdutos = {
     produtos: [
